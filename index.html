@@ -1,0 +1,1058 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>雅思口语Part2 · 9-12月串题宝典</title>
+  <style>
+    :root {
+      --bg: #f5f7fa;
+      --surface: #ffffff;
+      --text: #1e2a3a;
+      --border: #dbe4ed;
+      --primary: #4a8bf5;
+      --primary-hover: #3a78e0;
+      --card-bg: #fafcff;
+      --card-border: #4a8bf5;
+      --shadow: 0 2px 8px rgba(0,0,0,0.06);
+      --tag-bg: #e3edfd;
+      --reuse-bg: #f0f5fe;
+      --highlight: #fff3cd;
+      --common-bg: #fff8e1;
+      --sidebar-width: 280px;
+      --translation-bg: #f0f8ff;
+    }
+    [data-theme="dark"] {
+      --bg: #1a1e2a;
+      --surface: #242836;
+      --text: #e6edf6;
+      --border: #3a4055;
+      --primary: #6a9df5;
+      --primary-hover: #5a8de5;
+      --card-bg: #2c3142;
+      --card-border: #6a9df5;
+      --shadow: 0 2px 8px rgba(0,0,0,0.4);
+      --tag-bg: #3a4055;
+      --reuse-bg: #2f3547;
+      --highlight: #4a3a1a;
+      --common-bg: #3a3220;
+      --translation-bg: #2a3545;
+    }
+    * { box-sizing: border-box; margin: 0; padding: 0; }
+    body {
+      font-family: 'Segoe UI', Roboto, Arial, sans-serif;
+      background: var(--bg);
+      color: var(--text);
+      transition: background 0.2s, color 0.2s;
+      height: 100vh;
+      overflow: hidden;
+    }
+    .app { display: flex; height: 100vh; }
+    .sidebar {
+      width: var(--sidebar-width);
+      background: var(--surface);
+      border-right: 1px solid var(--border);
+      overflow-y: auto;
+      padding: 16px 12px;
+      flex-shrink: 0;
+      transition: background 0.2s;
+    }
+    .sidebar h2 { font-size: 18px; margin-bottom: 12px; display: flex; align-items: center; gap: 8px; }
+    .sidebar .search-box { width: 100%; padding: 8px 12px; border-radius: 20px; border: 1px solid var(--border); background: var(--bg); color: var(--text); margin-bottom: 12px; }
+    .sidebar .filter-group { display: flex; flex-wrap: wrap; gap: 6px; margin-bottom: 12px; }
+    .sidebar .filter-btn { padding: 4px 12px; border-radius: 20px; border: 1px solid var(--border); background: transparent; color: var(--text); cursor: pointer; font-size: 12px; }
+    .sidebar .filter-btn.active { background: var(--primary); color: #fff; border-color: var(--primary); }
+    .sidebar .story-item { margin-bottom: 6px; }
+    .sidebar .story-title { font-weight: 600; cursor: pointer; padding: 6px 10px; border-radius: 6px; display: flex; justify-content: space-between; align-items: center; }
+    .sidebar .story-title:hover { background: var(--bg); }
+    .sidebar .story-title .badge { font-size: 11px; background: var(--tag-bg); padding: 0 8px; border-radius: 12px; }
+    .sidebar .topic-list { padding-left: 16px; display: none; }
+    .sidebar .topic-list.open { display: block; }
+    .sidebar .topic-link { display: block; padding: 4px 8px; font-size: 13px; color: var(--text); text-decoration: none; border-radius: 4px; cursor: pointer; }
+    .sidebar .topic-link:hover { background: var(--bg); }
+    .sidebar .topic-link .tag-label { font-size: 10px; background: var(--tag-bg); padding: 0 6px; border-radius: 10px; margin-left: 6px; }
+    .main {
+      flex: 1;
+      overflow-y: auto;
+      padding: 20px 28px 40px;
+      background: var(--bg);
+      transition: background 0.2s;
+    }
+    .top-bar {
+      display: flex;
+      flex-wrap: wrap;
+      align-items: center;
+      justify-content: space-between;
+      gap: 12px;
+      margin-bottom: 20px;
+      background: var(--surface);
+      padding: 12px 20px;
+      border-radius: 12px;
+      box-shadow: var(--shadow);
+    }
+    .top-bar .left { display: flex; align-items: center; gap: 12px; flex-wrap: wrap; }
+    .top-bar .right { display: flex; align-items: center; gap: 8px; flex-wrap: wrap; }
+    .top-bar button, .top-bar .btn {
+      background: var(--primary);
+      color: #fff;
+      border: none;
+      padding: 6px 16px;
+      border-radius: 30px;
+      font-size: 13px;
+      cursor: pointer;
+      transition: 0.15s;
+      white-space: nowrap;
+    }
+    .top-bar button:hover { background: var(--primary-hover); }
+    .top-bar .btn-outline { background: transparent; border: 1px solid var(--border); color: var(--text); }
+    .top-bar .btn-outline:hover { background: var(--bg); }
+    .theme-toggle { font-size: 20px; cursor: pointer; background: none; border: none; color: var(--text); }
+    .trans-toggle { font-size: 14px; cursor: pointer; background: none; border: 1px solid var(--border); padding: 4px 12px; border-radius: 30px; color: var(--text); }
+    .trans-toggle.active { background: var(--primary); color: #fff; border-color: var(--primary); }
+    .story-group {
+      margin-bottom: 40px;
+      background: var(--surface);
+      border-radius: 16px;
+      padding: 20px 24px 28px;
+      box-shadow: var(--shadow);
+      scroll-margin-top: 20px;
+    }
+    .story-title-main {
+      font-size: 24px;
+      font-weight: 700;
+      color: var(--text);
+      border-left: 6px solid var(--primary);
+      padding-left: 16px;
+      margin-bottom: 20px;
+    }
+    .card {
+      background: var(--card-bg);
+      border-left: 5px solid var(--card-border);
+      border-radius: 12px;
+      padding: 16px 20px 18px;
+      margin-bottom: 18px;
+      box-shadow: var(--shadow);
+      transition: 0.15s;
+      position: relative;
+    }
+    .card-header {
+      display: flex;
+      justify-content: space-between;
+      align-items: baseline;
+      flex-wrap: wrap;
+      gap: 8px;
+      margin-bottom: 6px;
+    }
+    .topic-name { font-size: 18px; font-weight: 700; }
+    .tag { font-size: 12px; font-weight: 600; color: var(--primary); background: var(--tag-bg); padding: 2px 14px; border-radius: 30px; }
+    .card-actions { display: flex; gap: 8px; align-items: center; }
+    .card-actions button { background: none; border: none; cursor: pointer; font-size: 18px; color: var(--text); opacity: 0.6; transition: 0.2s; }
+    .card-actions button:hover { opacity: 1; }
+    .card-actions .favorited { color: #f5a623; opacity: 1; }
+    .answer { font-size: 15px; line-height: 1.75; margin-top: 6px; }
+    .answer p { margin: 4px 0; }
+    .common {
+      background: var(--common-bg);
+      padding: 2px 6px;
+      border-radius: 4px;
+      border-bottom: 2px solid #f5c542;
+      display: inline;
+    }
+    .translation {
+      font-size: 15px;
+      line-height: 1.75;
+      margin-top: 10px;
+      padding: 10px 14px;
+      background: var(--translation-bg);
+      border-radius: 8px;
+      border-left: 3px solid var(--primary);
+      display: none;
+    }
+    .translation.show { display: block; }
+    .translation .label { font-weight: 600; font-size: 13px; opacity: 0.7; margin-right: 8px; }
+    .reuse {
+      margin-top: 10px;
+      padding-top: 10px;
+      border-top: 1px dashed var(--border);
+      font-size: 13px;
+    }
+    .reuse strong { background: var(--tag-bg); padding: 1px 10px; border-radius: 20px; margin-right: 6px; }
+    .reuse span { background: var(--reuse-bg); padding: 2px 8px; border-radius: 16px; margin: 0 3px 3px 0; display: inline-block; }
+    .highlight-phrase { background: var(--highlight); padding: 0 4px; border-radius: 4px; }
+    .scroll-top { position: fixed; bottom: 30px; right: 30px; background: var(--primary); color: #fff; border: none; border-radius: 50%; width: 48px; height: 48px; font-size: 24px; cursor: pointer; box-shadow: 0 4px 12px rgba(0,0,0,0.2); display: none; }
+    .scroll-top.show { display: block; }
+    @media (max-width: 768px) {
+      .sidebar { width: 100%; height: auto; max-height: 200px; border-right: none; border-bottom: 1px solid var(--border); }
+      .app { flex-direction: column; height: auto; }
+      .main { padding: 12px; }
+      .top-bar { flex-direction: column; align-items: stretch; }
+    }
+    @media print {
+      .sidebar, .top-bar, .card-actions, .scroll-top { display: none !important; }
+      .story-group { break-inside: avoid; }
+      .translation { display: block !important; }
+    }
+  </style>
+</head>
+<body>
+<div class="app">
+  <aside class="sidebar" id="sidebar">
+    <h2>📚 串题宝典</h2>
+    <input type="text" class="search-box" id="searchBox" placeholder="搜索题目...">
+    <div class="filter-group" id="filterGroup">
+      <button class="filter-btn active" data-filter="all">全部</button>
+      <button class="filter-btn" data-filter="Person">👤 Person</button>
+      <button class="filter-btn" data-filter="Place">📍 Place</button>
+      <button class="filter-btn" data-filter="Object">🎁 Object</button>
+      <button class="filter-btn" data-filter="Event">🎬 Event</button>
+    </div>
+    <div id="storyList"></div>
+    <div style="margin-top:12px; font-size:12px; color:var(--text); opacity:0.7;">
+      <span id="progressInfo">进度: 0%</span>
+    </div>
+  </aside>
+  <main class="main" id="mainContent">
+    <div class="top-bar">
+      <div class="left">
+        <button id="toggleSidebar" style="background:none;border:none;font-size:20px;cursor:pointer;">☰</button>
+        <span style="font-weight:600;">📖 雅思口语Part2 · 9-12月串题</span>
+      </div>
+      <div class="right">
+        <button class="trans-toggle" id="transToggle">🌐 中文</button>
+        <button class="theme-toggle" id="themeToggle">🌙</button>
+        <button class="btn-outline" id="exportAllWord">📄 导出全部Word</button>
+        <button class="btn-outline" id="exportPDF">📕 导出PDF</button>
+        <button class="btn-outline" id="exportCurrentStoryWord">📄 导出当前Story</button>
+      </div>
+    </div>
+    <div id="storiesContainer"></div>
+    <button class="scroll-top" id="scrollTopBtn">↑</button>
+  </main>
+</div>
+
+<script>
+// ============================================================
+// 数据：按素材分组，每组包含多个话题
+// 共用段落用 <span class="common">...</span> 标记
+// 英文已按"苏州"段落风格润色：自然、流畅、有画面感、简单易读
+// ============================================================
+const storiesData = [
+  {
+    id: 'story-community',
+    title: '🧑‍🤝‍🧑 素材1：社区暑期托管志愿',
+    topics: [
+      {
+        id: 't1',
+        title: '1. 吵闹的地方',
+        tag: 'Place',
+        answer: `<p>I'd like to talk about a place that was incredibly noisy — a community center in my neighborhood where I volunteered last summer. I was there for about a month, looking after primary school kids, teaching them a few classes, and helping with their homework.</p><p>You know how it is — one kid can be an angel, but a whole group of them? That's a different story altogether. It was like little devils running around everywhere. I had to deal with all kinds of problems, one after another. It felt like playing a video game, except there was no winning — just extra "screaming" as a bonus reward.</p><p>After that experience, I really learned how powerful kids can be. The place was noisy because children were constantly talking, laughing, and shouting. I felt exhausted, but also amused. It was a challenging yet memorable summer.</p>`,
+        translation: `<p>我想谈谈一个我去过的非常吵闹的地方——我暑假在社区街道参与的暑期托管志愿活动，为期一个月。我主要负责托管小学的孩子并给他们上一些课和课后辅导。</p><p>你知道的，一个孩子或许是天使，但是一群孩子在一起就是恶魔一般的场景了。我要不断处理不同孩子的各类问题，像打游戏一样，不同的是这儿没有通关，只有“尖叫”的额外奖励。</p><p>经此之后我对孩子的威力有了更多的认识。那个地方吵闹是因为孩子们一直在说话、大笑、喊叫。我感到疲惫，但也觉得有趣。那是一个充满挑战但难忘的夏天。</p>`,
+        reuse: ['one kid can be an angel, but a whole group of them? That\'s a different story','like little devils running around everywhere','no winning — just extra "screaming" as a bonus reward']
+      }
+    ]
+  },
+  {
+    id: 'story-xuanwu',
+    title: '🌅 素材2：玄武湖日落与美好夜晚',
+    topics: [
+      {
+        id: 't2',
+        title: '2. 自然之地',
+        tag: 'Place',
+        answer: `<p>This question takes me back to one night this summer. My friend came to Nanjing, my hometown, for a summer camp. After we'd traveled around, we suddenly came across a video of the sunset at Xuanwu Lake. We decided to go and see it for ourselves.</p><p><span class="common">We sat together by the lake. The sun went down slowly. Once in a while, one or two birds flew over the water. We stayed until everything turned dark and night fell. We held up our phones as lights and talked freely about the present, the past, and the future. I didn't know what the future would bring, but I enjoyed that moment and that beautiful view.</span></p><p>I enjoy this place because it is quiet and beautiful. I can see the lake, the sunset, and birds there. That night, I was with a friend from far away. It made me feel calm, relaxed, and thankful. That's why I enjoy going to this natural place.</p>`,
+        translation: `<p>这个问题带我回到了今年暑假的一个夜晚。我的朋友来南京，我的家乡，参加 summer camping，游玩之后突然刷到玄武湖的日落，我们决定去欣赏。</p><p><span class="common">我们一起在玄武湖的湖边坐着，太阳渐渐落山，偶尔一两只鸟儿掠过湖面，直到一切都变得黑暗进入了黑夜。我们举着手机灯光，畅谈现在过去未来，我不知道未来如何，但是我享受此刻此美景。</span></p><p>我喜欢这个地方，因为它安静又美丽。我可以在那里看到湖、日落和鸟儿。那天晚上，我和一个远道而来的朋友在一起。它让我感到平静、放松和感恩。这就是为什么我喜欢去这个自然之地。</p>`,
+        reuse: ['We sat together by the lake','the sun went down slowly','once in a while, one or two birds flew over the water','talked freely about the present, the past, and the future']
+      },
+      {
+        id: 't17',
+        title: '17. 跟朋友度过的美好夜晚',
+        tag: 'Event',
+        answer: `<p>This question takes me back to one night this summer. My friend came to Nanjing, my hometown, for a summer camp. After we'd traveled around, we suddenly came across a video of the sunset at Xuanwu Lake. We decided to go and see it for ourselves.</p><p><span class="common">We sat together by the lake. The sun went down slowly. Once in a while, one or two birds flew over the water. We stayed until everything turned dark and night fell. We held up our phones as lights and talked freely about the present, the past, and the future. I didn't know what the future would bring, but I enjoyed that moment and that night.</span></p><p>I think it was an enjoyable evening because I was with a good friend. We sat by the lake, watched the sunset, and talked about many things. It made me feel happy and relaxed. That's why I think it was an enjoyable evening.</p>`,
+        translation: `<p>这个问题带我回到了今年暑假的一个夜晚。我的朋友来南京，我的家乡，参加 summer camping，游玩之后突然刷到玄武湖的日落，我们决定去欣赏。</p><p><span class="common">我们一起在玄武湖的湖边坐着，太阳渐渐落山，偶尔一两只鸟儿路过湖面，直到一切都变得黑暗进入了黑夜。我们举着手机灯光，畅谈现在过去未来，我不知道未来如何，但是我享受此刻此夜。</span></p><p>我觉得那是一个愉快的夜晚，因为我和一个好朋友在一起。我们坐在湖边，看日落，聊了很多事情。它让我感到快乐和放松。这就是为什么我觉得那是一个愉快的夜晚。</p>`,
+        reuse: ['We sat together by the lake','the sun went down slowly','once in a while, one or two birds flew over the water','talked freely about the present, the past, and the future']
+      }
+    ]
+  },
+  {
+    id: 'story-gaokao',
+    title: '📚 素材3：高考等待成绩与不喜欢的电影',
+    topics: [
+      {
+        id: 't3',
+        title: '3. 等待特殊事情发生',
+        tag: 'Event',
+        answer: `<p>I'd like to talk about a time when I had to wait for something special. That something was my Gaokao result. I had to wait because it came out on a fixed date, and there was no way to get it earlier.</p><p><span class="common">As you may know, for every Chinese student, the Gaokao — the college entrance exam — is the most important thing in life, and the result is one of the great turning points. I still remember that night. I was extremely nervous. I didn't know what to do, and I couldn't sit still. So in the end, I decided to watch a movie to get through the wait. While I was watching, I found out my final result. It was very bad.</span></p><p>After I saw the result, I felt deeply sad and disappointed. But now, looking back, I think it was a very special and unforgettable night.</p>`,
+        translation: `<p>我想谈一次我不得不等待特殊事情发生的经历。那件特殊的事就是我的高考成绩。我不得不等，因为它是在固定日期公布的，我没法提前知道。</p><p><span class="common">也许你知道，对于每一个中国孩子来说，高考是人生中最重要的事情，而高考成绩就是人生的转折点之一。我还记得那天晚上我特别紧张，不知道做什么但是坐立难安，所以最后我决定去看电影来度过这次等待，并在电影中得知了最后的成绩，非常差。</span></p><p>看到成绩后，我感到非常难过和失望。但现在回头看，我觉得那是一个非常特别且难忘的夜晚。</p>`,
+        reuse: ['the Gaokao is the most important thing in life','the result is one of the great turning points','I couldn\'t sit still','watch a movie to get through the wait']
+      },
+      {
+        id: 't12',
+        title: '12. 不喜欢的电影',
+        tag: 'Object',
+        answer: `<p>I'd like to talk about a movie I dislike. To be honest, I don't even remember the movie, and I've basically forgotten the plot. It was probably a love story. But I clearly remember watching it in June 2023, at home, because that was the day my Gaokao result came out.</p><p><span class="common">As you may know, for every Chinese student, the Gaokao — the college entrance exam — is the most important thing in life, and the result is one of the great turning points. I still remember that night. I was extremely nervous. I didn't know what to do, and I couldn't sit still. So in the end, I decided to watch a movie to get through the wait. While I was watching, I found out my final result. It was very bad.</span></p><p>I dislike it because it reminds me of my bad Gaokao result. So whenever I think of this movie, I think of that bad night. That's why I dislike it so much.</p>`,
+        translation: `<p>我想谈一部我不喜欢的电影。说实话我不记得这部电影了，也基本忘记了剧情，大概是什么爱情故事吧。但我清晰地记得我是在2023年的6月看的，因为那天是我高考成绩出来的一天。</p><p><span class="common">也许你知道，对于每一个中国孩子来说，高考是人生中最重要的事情，而高考成绩就是人生的转折点之一。我还记得那天晚上我特别紧张，不知道做什么但是坐立难安，所以最后我决定去看电影来度过这次等待，并在电影中得知了最后的成绩，非常差。</span></p><p>我不喜欢它，因为它让我想起糟糕的高考成绩。所以每当我想起这部电影，我就会想起那个糟糕的夜晚。这就是为什么我这么讨厌它。</p>`,
+        reuse: ['the Gaokao is the most important thing in life','the result is one of the great turning points','I couldn\'t sit still','watch a movie to get through the wait']
+      }
+    ]
+  },
+  {
+    id: 'story-omakase',
+    title: '🍣 素材4：Omakase优质服务',
+    topics: [
+      {
+        id: 't4',
+        title: '4. 优质服务',
+        tag: 'Event',
+        answer: `<p>I'd like to talk about a time when I received very good service. It was at an Omakase restaurant. I had never been a fan of raw food, so I'd never tried this kind of cuisine before. But one time, my friend invited me there.</p><p>I was guided to a seat right in front of the chef. The waiter brought me a towel and water to rinse my mouth and clean my hands. At the same time, I could enjoy each dish the moment it was ready, tasting its freshness. Everyone, from the waiters to the head chef, was gentle and professional.</p><p>That experience showed me the charm of money — the finer the dining, the better the service. I was impressed by the attentiveness and the quality of the food. It was a truly memorable meal.</p>`,
+        translation: `<p>我想谈一次我收到优质服务的经历。那是在一家Omakase餐厅。我一向不爱吃生食，所以对这类一直不感兴趣，直到有一次我的朋友请我。</p><p>我被引导到板前的位置，服务员送来毛巾和水漱口和擦手，同时我可以第一时间享受到食材刚出炉的味道，感受到食材的美味。所有人从服务员到主厨都温和有力。</p><p>这次体验让我感受到了金钱的魅力，越贵的餐饮，越好的服务。我对他们的细心和食物的品质印象深刻。这是一次难忘的用餐体验。</p>`,
+        reuse: ['I was guided to a seat right in front of the chef','the waiter brought me a towel and water','I could enjoy each dish the moment it was ready','everyone was gentle and professional']
+      }
+    ]
+  },
+  {
+    id: 'story-littleprince',
+    title: '🌟 素材5：《小王子》',
+    topics: [
+      {
+        id: 't5',
+        title: '5. 令人兴奋的书',
+        tag: 'Object',
+        answer: `<p>I'd like to talk about an exciting book I enjoy reading. It is The Little Prince. It's a fairy tale, but it's not only for children — it's also for adults.</p><p><span class="common">I read it when I was little because it was so famous, but I didn't really understand it then. I only remembered the little prince, the fox, the rose, and his journey. Later, when I grew up, I opened it again in my free time. I read the story of the little prince and the fox. At that time, I was having some problems with friendship and felt pretty low. The fox told the little prince that if you tame someone, you must accept the feelings that come with it. When you build a bond with others, you have to bear the emotions it brings. That idea excited me because it felt so true. It's like the fox in the book, and also like humans as social animals.</span></p><p>It's exciting because it made me understand friendship and responsibility in a completely new way.</p>`,
+        translation: `<p>我想谈一本我喜欢读的令人兴奋的书。它就是《小王子》。它是一本童话书，但不是给儿童看的，反而是给成人看的。</p><p><span class="common">我很小的时候就读过，当时并不懂，只记得有小王子，有小狐狸，有玫瑰花，讲述了小王子一路的所见所闻。后来慢慢长大，一次闲暇时打开书，看到了小王子和狐狸的故事，不禁感到激动，当时的我友情产生了一些问题，情绪很不好，当我看到小狐狸对小王子说，既然驯服了它，就应该也承担这个行为带来的情感，当你与他人产生羁绊，你也必须要承受因此产生的情绪，就像小王子里的狐狸，也像人类这个social animal。</span></p><p>它令人兴奋，因为它让我以全新的方式理解了友谊和责任。</p>`,
+        reuse: ['The Little Prince','a fairy tale, but not only for children','if you tame someone, you must accept the feelings that come with it','humans as social animals']
+      },
+      {
+        id: 't49',
+        title: '49. 动物故事',
+        tag: 'Object',
+        answer: `<p>I'd like to talk about a story I like that involves animals. It is The Little Prince. It's a fairy tale, but it's not only for children — it's also for adults.</p><p><span class="common">I read it when I was little because it was so famous, but I didn't really understand it then. I only remembered the little prince, the fox, the rose, and his journey. Later, when I grew up, I opened it again in my free time. I read the story of the little prince and the fox. At that time, I was having some problems with friendship and felt pretty low. The fox told the little prince that if you tame someone, you must accept the feelings that come with it. When you build a bond with others, you have to bear the emotions it brings. That idea excited me because it felt so true. It's like the fox in the book, and also like humans as social animals.</span></p><p>I like this story because the fox is an animal but also like a wise friend. It reminds me that humans are social animals, and love and friendship come with responsibility.</p>`,
+        translation: `<p>我想谈一个我喜欢的有动物的故事。它就是《小王子》。它是一本童话书，但不是给儿童看的，反而是给成人看的。</p><p><span class="common">我很小的时候就读过，当时并不懂，只记得有小王子，有小狐狸，有大象，有很多的动物，讲述了小王子一路的所见所闻。后来慢慢长大，一次闲暇时打开书，看到了小王子和狐狸的故事，故事里小狐狸是动物也不是动物，当时的我友情产生了一些问题，情绪很不好，当我看到小狐狸对小王子说，既然驯服了它，就应该也承担这个行为带来的情感，当你与他人产生羁绊，你也必须要承受因此产生的情绪，就像小王子里的狐狸，也像人类这个social animal。</span></p><p>我喜欢这个故事，因为狐狸是动物，但也像一个智慧的朋友。它提醒我，人类是社交动物，爱和友谊伴随着责任。</p>`,
+        reuse: ['The Little Prince','a fairy tale, but not only for children','if you tame someone, you must accept the feelings that come with it','humans as social animals']
+      }
+    ]
+  },
+  {
+    id: 'story-peach',
+    title: '🍑 素材6：桃花酥与邻居奶奶',
+    topics: [
+      {
+        id: 't6',
+        title: '6. 儿时教你技能的人',
+        tag: 'Person',
+        answer: `<p>The person who taught me a skill when I was young was my neighbor's grandmother. She taught me how to make peach blossom pastry, a traditional Chinese dessert that people in my hometown eat in spring during spring outings.</p><p><span class="common">I wanted to learn it because I loved sweet food, and making it is not easy — you need to prepare many layers of flaky pastry and mix picked peach blossom petals with hand-mashed red bean paste before shaping it into flowers.</span></p><p>Although it takes a lot of patience and practice, I really enjoyed learning with her because she was knowledgeable and always explained things clearly. She also brought me lots of delicious food, so to me she is like an angel. So I don't think this skill is easy to learn, but it is definitely worth learning.</p>`,
+        translation: `<p>小时候教我技能的人是我邻居家的奶奶，她教我做桃花酥，这是我家乡春天踏春时吃的一种传统中式甜品。</p><p><span class="common">我想学是因为我喜欢甜食，而且做起来不容易，因为要准备很多层酥皮，把采摘的桃花瓣和手捣豆沙混合，再捏成花形。</span></p><p>虽然需要很多耐心和练习，但我很享受和她一起学，因为她学识渊博，总是讲得很清楚，还给我带很多好吃的，所以在我看来她就像天使。所以我觉得这个技能不容易学，但绝对值得学。</p>`,
+        reuse: ['peach blossom pastry','many layers of flaky pastry','hand-mashed red bean paste','she is like an angel']
+      },
+      {
+        id: 't7',
+        title: '7. 手搓特殊物件的人',
+        tag: 'Person',
+        answer: `<p>I'd like to talk about my elderly neighbor, who makes special things by hand. I knew her when I was little because she lived right next door to my family.</p><p><span class="common">She often makes peach blossom pastry, a traditional Chinese dessert that looks like a small flower and is eaten in spring during spring outings in my hometown. She makes it completely by hand: she prepares many layers of flaky pastry, picks peach blossom petals, mashes red bean paste by hand, and shapes everything into flower patterns. It's really hard work.</span></p><p>Watching her, I felt amazed because she is so patient and careful, and she always makes the pastry beautiful and delicious. She also gave me a lot of tasty food when I was young, so I think she is a warm and talented person, and to me she is like an angel.</p>`,
+        translation: `<p>我想谈我年长的邻居，她手工做特别的东西，我小时候认识她，因为她家就在我家隔壁。</p><p><span class="common">她常做桃花酥，这是一种传统中式甜品，看起来像小花，在我家乡春天踏春时吃。她完全手工做：准备很多层酥皮，摘桃花瓣，手捣豆沙，再捏成花形，所以真的很辛苦。</span></p><p>我看她做时觉得很惊讶，因为她非常耐心仔细，做出来的点心又漂亮又好吃。她小时候还给我很多好吃的，所以我觉得她温暖又有才华，在我看来她就像天使。</p>`,
+        reuse: ['peach blossom pastry','many layers of flaky pastry','hand-mashed red bean paste','she is like an angel']
+      },
+      {
+        id: 't16',
+        title: '16. 尊敬的老人家',
+        tag: 'Person',
+        answer: `<p>The older person I admire is my neighbor's grandmother. I've known her since I was a child because she lived next door to my family.</p><p>I admire her for two main reasons. First, she is very knowledgeable about traditional Chinese desserts, and she taught me how to make peach blossom pastry, a traditional dessert that people in my hometown eat in spring during spring outings. <span class="common">The process is complex — you need many layers of flaky pastry, and you mix picked peach blossom petals with hand-mashed red bean paste before shaping it into flowers. But she is always patient and careful.</span> Second, she is kind and warm, and she always brought me delicious food and made me feel happy. In my eyes, she is like an angel, so I feel lucky to know her, and that's why I really admire her.</p>`,
+        translation: `<p>我敬佩的年长的人是我邻居家的奶奶，我从小认识她，因为她家就在我家隔壁。</p><p>我敬佩她主要有两个原因。第一，她对传统中式甜品非常了解，教我做桃花酥，这是我家乡春天踏春时吃的传统甜品。<span class="common">过程很复杂，因为需要很多层酥皮，要把采摘的桃花瓣和手捣豆沙混合，再捏成花形，但她总是耐心仔细。</span>第二，她善良温暖，总是给我带好吃的，让我开心。在我看来她就像天使，所以认识她很幸运，这就是我很敬佩她的原因。</p>`,
+        reuse: ['peach blossom pastry','many layers of flaky pastry','hand-mashed red bean paste','she is like an angel']
+      },
+      {
+        id: 't27',
+        title: '27. 特别节日的食物',
+        tag: 'Object',
+        answer: `<p>I'd like to talk about a kind of food I like to eat on special occasions. It is peach blossom pastry, a traditional Chinese dessert that people in my hometown eat in spring during spring outings.</p><p><span class="common">I first tried it when I was a child, and my neighbor's grandmother taught me how to make it. It's not easy to prepare — you need to make many layers of flaky pastry, then mix picked peach blossom petals with hand-mashed red bean paste and shape it into flower patterns. So it looks beautiful and tastes sweet.</span></p><p>I like to eat it on special occasions because it reminds me of spring, my hometown, and the happy days I spent with the grandmother. She was knowledgeable and kind, and to me she is like an angel. So this food is not just food; it's a warm memory.</p>`,
+        translation: `<p>我想谈一种我喜欢在特殊场合吃的食物，它就是桃花酥，一种我家乡春天踏春时吃的传统中式甜品。</p><p><span class="common">我第一次吃是小时候，邻居家的奶奶教我做。做起来不容易，因为需要很多层酥皮，然后把采摘的桃花瓣和手捣豆沙混合，捏成花形，所以它好看又甜。</span></p><p>我喜欢在特殊场合吃它，因为它让我想起春天、家乡，还有和奶奶一起度过的快乐日子。她学识渊博又善良，在我看来她就像天使，所以这不只是食物，而是一段温暖回忆。</p>`,
+        reuse: ['peach blossom pastry','many layers of flaky pastry','hand-mashed red bean paste','she is like an angel']
+      }
+    ]
+  },
+  {
+    id: 'story-mom',
+    title: '💪 素材7：帮助妈妈改善健康',
+    topics: [
+      {
+        id: 't8',
+        title: '8. 帮助他人的时刻',
+        tag: 'Event',
+        answer: `<p>I'd like to talk about a time when I helped my mother solve a problem. After a car accident, her health was poor, and the real problem was that she couldn't build a healthy daily routine. She felt weak and discouraged, and she didn't know where to start.</p><p><span class="common">We started with easy exercise like walking and stretching, then slowly added slow jogging and light strength training. I also helped her eat more vegetables, eggs, fish and whole grains, and less fried food and sweets. Every morning we got up around 5:30 or 6:00 and went to a small park near our home. It was hard at first, but we encouraged each other, and after a few months she became stronger and happier.</span></p><p>Because of this, she finally solved the problem. She became healthier and more confident, and I felt really happy and proud. Helping her also made me realize that sometimes the best help is not just advice, but staying with someone and doing it together.</p>`,
+        translation: `<p>我想谈谈一次我帮妈妈解决问题的经历。车祸后，她身体很差，真正的问题是她无法建立健康的日常习惯。她感到虚弱、沮丧，也不知道从哪里开始。</p><p><span class="common">我们从走路、拉伸这类简单运动开始，然后慢慢加入慢跑和轻度力量训练。我还帮她多吃蔬菜、鸡蛋、鱼和全谷物，少吃油炸食品和甜食。每天早上我们五点半或六点左右起床，去家附近的小公园。起初很难，但我们互相鼓励，几个月后她变得更强壮、更开心。</span></p><p>因此，她终于解决了这个问题。她变得更健康、更自信，我感到非常开心和骄傲。帮助她也让我意识到，有时候最好的帮助不只是建议，而是陪着一个人一起做。</p>`,
+        reuse: ['easy exercise like walking and stretching','slowly added slow jogging and light strength training','we encouraged each other','she became stronger and happier']
+      },
+      {
+        id: 't25',
+        title: '25. 助人改善健康',
+        tag: 'Person',
+        answer: `<p>The person I helped to improve her health and fitness is my mother. I helped her because after a car accident, her health became very poor, and I was worried about her. I wanted her to get stronger and enjoy life again.</p><p><span class="common">We started with easy exercise like walking and stretching, then slowly added slow jogging and light strength training. I also helped her eat more vegetables, eggs, fish and whole grains, and less fried food and sweets. Every morning we got up around 5:30 or 6:00 and went to a small park near our home. It was hard at first, but we encouraged each other, and after a few months she became stronger and happier.</span></p><p>I really admire her. She was not lazy; she was just in a hard situation. I felt proud that I could support her, and our relationship became closer. Now I feel very happy when I see her living a healthier life.</p>`,
+        translation: `<p>我帮助改善健康和体能的人是我妈妈。我帮她是因为车祸后她的身体变得很差，我很担心她。我希望她能变得更强壮，重新享受生活。</p><p><span class="common">我们从走路、拉伸这类简单运动开始，然后慢慢加入慢跑和轻度力量训练。我还帮她多吃蔬菜、鸡蛋、鱼和全谷物，少吃油炸食品和甜食。每天早上我们五点半或六点左右起床，去家附近的小公园。起初很难，但我们互相鼓励，几个月后她变得更强壮、更开心。</span></p><p>我真的很敬佩她。她不是懒，只是处在一个艰难的处境里。我很骄傲自己能支持她，我们的关系也更亲近了。现在看到她过上更健康的生活，我非常开心。</p>`,
+        reuse: ['easy exercise like walking and stretching','slowly added slow jogging and light strength training','we encouraged each other','she became stronger and happier']
+      },
+      {
+        id: 't37',
+        title: '37. 早起的经历',
+        tag: 'Event',
+        answer: `<p>The time I had to get up very early was about two years ago. I had to get up at around 5:30 or 6:00 in the morning. I was at home, and then I went to a small park near my neighborhood. I got up so early because I wanted to accompany my mother and help her exercise.</p><p><span class="common">We started with easy exercise like walking and stretching, then slowly added slow jogging and light strength training. I also helped her eat more vegetables, eggs, fish and whole grains, and less fried food and sweets. Every morning we got up around 5:30 or 6:00 and went to a small park near our home. It was hard at first, but we encouraged each other, and after a few months she became stronger and happier.</span></p><p>Getting up early was really painful for me at first. I often wanted to turn off the alarm and go back to sleep. But after a few weeks, I got used to it, and I started to enjoy the quiet morning. Seeing my mother become stronger made every early morning worth it. I felt tired but satisfied.</p>`,
+        translation: `<p>我不得不很早起床的经历大约在两年前。我必须早上五点半或六点左右起床。我在家里，然后会去附近的小公园。我那么早起床，是因为我想陪妈妈，帮她锻炼。</p><p><span class="common">我们从走路、拉伸这类简单运动开始，然后慢慢加入慢跑和轻度力量训练。我还帮她多吃蔬菜、鸡蛋、鱼和全谷物，少吃油炸食品和甜食。每天早上我们五点半或六点左右起床，去家附近的小公园。起初很难，但我们互相鼓励，几个月后她变得更强壮、更开心。</span></p><p>一开始早起对我来说真的很痛苦。我经常想关掉闹钟继续睡。但几周后，我习惯了，也开始享受安静的早晨。看到妈妈变得更强壮，让每个早起的早晨都值得。我感到累但满足。</p>`,
+        reuse: ['easy exercise like walking and stretching','slowly added slow jogging and light strength training','we encouraged each other','she became stronger and happier']
+      },
+      {
+        id: 't39',
+        title: '39. 一直以来的追求',
+        tag: 'Event',
+        answer: `<p>My long-term ambition is to stay healthy and fit. I wasn't sporty when I was young, and I often got sick. For a long time, I thought many people pursued money and success, but I just wanted good health. Then my mother's car accident inspired me to take action.</p><p><span class="common">We started with easy exercise like walking and stretching, then slowly added slow jogging and light strength training. I also helped her eat more vegetables, eggs, fish and whole grains, and less fried food and sweets. Every morning we got up around 5:30 or 6:00 and went to a small park near our home. It was hard at first, but we encouraged each other, and after a few months she became stronger and happier.</span></p><p>I don't think I will achieve this ambition at one specific time. I want to keep it for the rest of my life. I have had this ambition for a long time because I know health is fragile, and I have seen how much better life becomes when we take care of our bodies.</p>`,
+        translation: `<p>我一直以来的追求是保持健康和有活力。我年轻时并不爱运动，还经常生病。很长一段时间里，我觉得很多人追求金钱和成功，而我只想要健康。后来妈妈的车祸启发我采取行动。</p><p><span class="common">我们从走路、拉伸这类简单运动开始，然后慢慢加入慢跑和轻度力量训练。我还帮她多吃蔬菜、鸡蛋、鱼和全谷物，少吃油炸食品和甜食。每天早上我们五点半或六点左右起床，去家附近的小公园。起初很难，但我们互相鼓励，几个月后她变得更强壮、更开心。</span></p><p>我不认为我会在某个特定时间实现这个追求。我想余生都保持它。我之所以长期有这个追求，是因为我知道健康很脆弱，也看到当我们照顾身体时，生活会变得好很多。</p>`,
+        reuse: ['easy exercise like walking and stretching','slowly added slow jogging and light strength training','we encouraged each other','she became stronger and happier']
+      },
+      {
+        id: 't46',
+        title: '46. 完成困难挑战的人',
+        tag: 'Person',
+        answer: `<p>The person I know who successfully achieved something difficult is my mother. After a serious car accident, her health was very poor, and even walking or getting out of bed was hard for her. Recovery was extremely difficult, and she often felt tired and discouraged.</p><p><span class="common">We started with easy exercise like walking and stretching, then slowly added slow jogging and light strength training. I also helped her eat more vegetables, eggs, fish and whole grains, and less fried food and sweets. Every morning we got up around 5:30 or 6:00 and went to a small park near our home. It was hard at first, but we encouraged each other, and after a few months she became stronger and happier.</span></p><p>In the end, she could walk for an hour and even jog slowly. To me, she achieved something very difficult. I felt deeply proud of her, because she showed me that courage and persistence can really change a person's life.</p>`,
+        translation: `<p>我认识的一个成功完成困难挑战的人是我妈妈。经历一场严重车祸后，她的身体非常差，甚至走路或起床对她来说都很难。恢复过程极其困难，她经常感到疲惫和沮丧。</p><p><span class="common">我们从走路、拉伸这类简单运动开始，然后慢慢加入慢跑和轻度力量训练。我还帮她多吃蔬菜、鸡蛋、鱼和全谷物，少吃油炸食品和甜食。每天早上我们五点半或六点左右起床，去家附近的小公园。起初很难，但我们互相鼓励，几个月后她变得更强壮、更开心。</span></p><p>最后，她能走一个小时，甚至能慢慢跑步。对我来说，她完成了非常困难的事。我深深为她感到骄傲，因为她让我看到，勇气和坚持真的可以改变一个人的生活。</p>`,
+        reuse: ['easy exercise like walking and stretching','slowly added slow jogging and light strength training','we encouraged each other','she became stronger and happier']
+      },
+      {
+        id: 't28',
+        title: '28. 明智的重要决定',
+        tag: 'Event',
+        answer: `<p>The important decision I made was to exercise with my mother every morning and help her build a healthier routine. I made this decision because after a car accident, her health was very poor, and I was really worried about her. I also realized that health is more important than anything else. It was not an easy decision, because both of us loved sleeping in, hated exercising, and had poor eating habits.</p><p><span class="common">We started with easy exercise like walking and stretching, then slowly added slow jogging and light strength training. I also helped her eat more vegetables, eggs, fish and whole grains, and less fried food and sweets. Every morning we got up around 5:30 or 6:00 and went to a small park near our home. It was hard at first, but we encouraged each other, and after a few months she became stronger and happier.</span></p><p>Looking back, I'm very happy with the result. She became stronger, slept better, and smiled more, and I also became healthier. More importantly, we became closer. So I think it was a wise and important decision, and I'm glad I didn't give up.</p>`,
+        translation: `<p>我做的重要决定是每天早起陪妈妈锻炼，帮她建立更健康的生活习惯。我这么做是因为车祸后她身体很差，我非常担心她。我也意识到健康比什么都重要。这个决定并不容易，因为我们俩都爱睡懒觉、讨厌运动，而且饮食习惯也不好。</p><p><span class="common">我们从走路、拉伸这类简单运动开始，然后慢慢加入慢跑和轻度力量训练。我还帮她多吃蔬菜、鸡蛋、鱼和全谷物，少吃油炸食品和甜食。每天早上我们五点半或六点左右起床，去家附近的小公园。起初很难，但我们互相鼓励，几个月后她变得更强壮、更开心。</span></p><p>回头看，我对这个结果非常满意。她变得更强壮，睡得更香，笑容也更多，我自己也更健康了。更重要的是，我们关系更亲近了。所以我觉得这是一个明智又重要的决定，我很高兴自己没有放弃。</p>`,
+        reuse: ['easy exercise like walking and stretching','slowly added slow jogging and light strength training','we encouraged each other','she became stronger and happier']
+      }
+    ]
+  },
+  {
+    id: 'story-lecture',
+    title: '📱 素材8：无聊课堂刷短视频',
+    topics: [
+      {
+        id: 't9',
+        title: '9. 浪费时间的日常',
+        tag: 'Event',
+        answer: `<p>The activity I usually do that wastes my time is scrolling short videos on my phone. I've been doing it for about two years, since I started university. I usually do it almost every day, especially when I'm in a boring class.</p><p><span class="common">For example, last Wednesday afternoon, I was in a large lecture hall for a general elective with my roommate. The teacher just read from the slides in a flat voice, and the PowerPoint was full of text. There was no interaction at all. The class lasted nearly two hours, and we couldn't leave because the teacher took attendance. I felt really bored, so I sat in the back row and scrolled short videos. I know it's a waste of time because I learn nothing and have to study by myself later. But I still do it because the lecture is too boring, and I have to be there for attendance. Scrolling gives me instant fun, and once I start, I can't stop.</span></p><p>So I know it's a waste of time, but I still do it because it's relaxing and I can't stop once I start.</p>`,
+        translation: `<p>我通常做的浪费时间的活动是用手机刷短视频。我已经刷短视频大约两年了，从大学开始。我几乎每天都刷，尤其是在无聊的课上。</p><p><span class="common">比如上周三下午，我和室友在一间大阶梯教室里上一门公共选修课。老师只是用平淡的声音念PPT，幻灯片上全是文字。完全没有互动。课持续了将近两个小时，我们不能离开，因为老师点名。我觉得非常无聊，所以坐在后排刷短视频。我知道这是浪费时间，因为我什么都没学到，之后还得自己学。但我还是这么做，因为课太无聊了，而且我为了出勤必须到场。刷视频给我即时快乐，一旦开始就停不下来。</span></p><p>所以我知道这是浪费时间，但我还是这么做，因为它让我放松，而且一旦开始就停不下来。</p>`,
+        reuse: ['a large lecture hall','the teacher just read from the slides in a flat voice','there was no interaction at all','I sat in the back row and scrolled short videos']
+      },
+      {
+        id: 't45',
+        title: '45. 无聊的地方',
+        tag: 'Place',
+        answer: `<p>A boring place I went to was a large lecture hall at my university. I went there for a general elective.</p><p><span class="common">For example, last Wednesday afternoon, I was in a large lecture hall for a general elective with my roommate. The teacher just read from the slides in a flat voice, and the PowerPoint was full of text. There was no interaction at all. The class lasted nearly two hours, and we couldn't leave because the teacher took attendance. I felt really bored, so I sat in the back row and scrolled short videos. I know it's a waste of time because I learn nothing and have to study by myself later. But I still do it because the lecture is too boring, and I have to be there for attendance. Scrolling gives me instant fun, and once I start, I can't stop.</span></p><p>So that's why I felt bored in that place, and I ended up wasting my time there by scrolling short videos.</p>`,
+        translation: `<p>我去过的一个无聊的地方是我大学里的一间大阶梯教室。我去那里上一门公共选修课。</p><p><span class="common">比如上周三下午，我和室友在一间大阶梯教室里上一门公共选修课。老师只是用平淡的声音念PPT，幻灯片上全是文字。完全没有互动。课持续了将近两个小时，我们不能离开，因为老师点名。我觉得非常无聊，所以坐在后排刷短视频。我知道这是浪费时间，因为我什么都没学到，之后还得自己学。但我还是这么做，因为课太无聊了，而且我为了出勤必须到场。刷视频给我即时快乐，一旦开始就停不下来。</span></p><p>所以这就是为什么我在那个地方感到无聊，最终通过刷短视频浪费时间。</p>`,
+        reuse: ['a large lecture hall','the teacher just read from the slides in a flat voice','there was no interaction at all','I sat in the back row and scrolled short videos']
+      }
+    ]
+  },
+  {
+    id: 'story-huzhou',
+    title: '🚗 素材9：湖州拥挤旅行',
+    topics: [
+      {
+        id: 't10',
+        title: '10. 拥挤的地方',
+        tag: 'Place',
+        answer: `<p>I'd like to talk about a crowded place I've been to. It was a popular scenic spot in Huzhou. I went there during a holiday with my parents. I don't go there often — in fact, I've only been there once, because I usually prefer quiet places.</p><p><span class="common">During that holiday, my parents and I drove to Huzhou. The roads were extremely crowded, and the tourist spot was packed with people everywhere. We could hardly walk or take nice photos, and we had to wait in long lines for almost everything. I felt tired and annoyed, and I just wanted to leave.</span></p><p>I didn't enjoy going to this place at all. It was too noisy, stressful and tiring for me. I felt like I was just moving with the crowd instead of enjoying the scenery. So I would only go back on a weekday, not during a holiday.</p>`,
+        translation: `<p>我想谈一个我去过的拥挤的地方。那是湖州一个很受欢迎的景点。假期我和父母去了那里。我不常去——事实上我只去过一次，因为我通常更喜欢安静的地方。</p><p><span class="common">那个假期，我和父母自驾去了湖州。路上极其拥挤，景区里到处都是人。我们几乎走不动，也拍不到好看的照片，几乎做什么都要排长队。我感到又累又烦，只想离开。</span></p><p>我一点也不喜欢去这个地方。它对我来说太吵、太有压力、太累了。我感觉自己只是随着人群移动，而不是在欣赏风景。所以我只会在工作日回去，不会在假期去。</p>`,
+        reuse: ['The roads were extremely crowded','the tourist spot was packed with people everywhere','we could hardly walk or take nice photos','I felt tired and annoyed']
+      },
+      {
+        id: 't11',
+        title: '11. 不喜欢的短途旅行',
+        tag: 'Event',
+        answer: `<p>The short trip I often take but do not like is a self-driving trip to Huzhou with my parents during holidays. I don't take it every week, but it is a typical short trip my family sometimes takes because my parents' friends are over there.</p><p><span class="common">During that holiday, my parents and I drove to Huzhou. The roads were extremely crowded, and the tourist spot was packed with people everywhere. We could hardly walk or take nice photos, and we had to wait in long lines for almost everything. I felt tired and annoyed, and I just wanted to leave.</span></p><p>I don't like this trip because it is always crowded, tiring and not the place I really want to visit. I feel disappointed and exhausted. If I could choose, I would rather stay at home or go somewhere less popular.</p>`,
+        translation: `<p>我经常进行但不喜欢的一次短途旅行，是假期和父母自驾去湖州。我不是每周都去，但这是我家人有时会进行的一种典型短途旅行，因为我父母的朋友在那里。</p><p><span class="common">那个假期，我和父母自驾去了湖州。路上极其拥挤，景区里到处都是人。我们几乎走不动，也拍不到好看的照片，几乎做什么都要排长队。我感到又累又烦，只想离开。</span></p><p>我不喜欢这次旅行，因为它总是很拥挤、很累，而且不是我真的想去的地方。我感到失望又疲惫。如果我能选，我宁愿待在家里，或者去一个不那么热门的地方。</p>`,
+        reuse: ['The roads were extremely crowded','the tourist spot was packed with people everywhere','we could hardly walk or take nice photos','I felt tired and annoyed']
+      },
+      {
+        id: 't41',
+        title: '41. 改变计划的时刻',
+        tag: 'Event',
+        answer: `<p>I once had to change a plan I had made. I had planned to travel to Shanghai with my friend during the holiday. But my friend suddenly had something important to do, so we had to cancel the plan. It was difficult to change because it was during a holiday, and I had been looking forward to it for a long time.</p><p><span class="common">During that holiday, my parents and I drove to Huzhou instead. The roads were extremely crowded, and the tourist spot was packed with people everywhere. We could hardly walk or take nice photos, and we had to wait in long lines for almost everything. I felt tired and annoyed, and I just wanted to leave.</span></p><p>At first, I felt disappointed and a bit helpless because my original plan was ruined. But later I accepted it and tried to enjoy the time with my parents. I learned that plans can change suddenly, and it is important to be flexible. Still, I hope next time I can go to Shanghai with my friend.</p>`,
+        translation: `<p>我曾经不得不改变一个已经做好的计划。我本来打算假期和朋友去上海旅游。但朋友突然有重要的事，所以我们只好取消计划。改变计划很难，因为那是在假期，而且我已经期待很久了。</p><p><span class="common">那个假期，我和父母改去了湖州。路上极其拥挤，景区里到处都是人。我们几乎走不动，也拍不到好看的照片，几乎做什么都要排长队。我感到又累又烦，只想离开。</span></p><p>一开始，我感到失望，也有点无助，因为我原来的计划被破坏了。但后来我接受了，并试着享受和父母在一起的时间。我学到计划可能会突然改变，灵活应对很重要。不过我还是希望下次能和朋友去上海。</p>`,
+        reuse: ['The roads were extremely crowded','the tourist spot was packed with people everywhere','we could hardly walk or take nice photos','I felt tired and annoyed']
+      }
+    ]
+  },
+  {
+    id: 'story-jessica',
+    title: '📸 素材10：Jessica 受欢迎/快乐/爱拍照',
+    topics: [
+      {
+        id: 't13',
+        title: '13. 受欢迎的人',
+        tag: 'Person',
+        answer: `<p>The popular person I know is Jessica, one of my university friends. I've known her for about two years, and I usually see her on campus, at parties, or on trips.</p><p><span class="common">She takes photos almost everywhere. She really loves taking photos, and she has many albums on her phone. She once showed me one of them and told me that every photo was taken by her. The photos include her family, teachers, and friends, and everyone in them is smiling. I think she takes photos because she wants to keep those happy memories and share them with others. She records every beautiful moment in her life, so she always seems happy. She is cheerful, friendly, and optimistic. She makes people feel comfortable and loves sharing her happiness with us. That's why everyone likes hanging out with her.</span></p><p>So I think she is very popular because she is friendly, cheerful, and always shares her happiness with others.</p>`,
+        translation: `<p>我认识的受欢迎的人是Jessica，我的一个大学朋友。我认识她大约两年了，我通常在学校、聚会或旅行时见到她。</p><p><span class="common">她几乎到处拍照。她真的很喜欢拍照，手机里有很多相册。她曾经给我看过一个，告诉我每张照片都是她拍的。照片里有她的家人、老师和朋友，每个人都笑意盎然。我觉得她拍照是因为她想留住那些快乐的回忆，并与他人分享。她记录下生活中的每一个美好瞬间，所以她总是那么快乐。她开朗、友好、乐观。她让人感到舒服，喜欢和我们分享快乐。所以大家都喜欢和她玩。</span></p><p>所以我认为她很受欢迎，因为她友好、开朗，总是和别人分享她的快乐。</p>`,
+        reuse: ['She takes photos almost everywhere','every photo was taken by her','everyone in them is smiling','she always seems happy','cheerful, friendly, and optimistic']
+      },
+      {
+        id: 't15',
+        title: '15. 快乐的人',
+        tag: 'Person',
+        answer: `<p>The person I think is very happy is Jessica, my university friend. I've known her for about two years, and I usually see her on campus, at parties, or on trips.</p><p><span class="common">She takes photos almost everywhere. She really loves taking photos, and she has many albums on her phone. She once showed me one of them and told me that every photo was taken by her. The photos include her family, teachers, and friends, and everyone in them is smiling. I think she takes photos because she wants to keep those happy memories and share them with others. She records every beautiful moment in her life, so she always seems happy. She is cheerful, friendly, and optimistic. She makes people feel comfortable and loves sharing her happiness with us. That's why everyone likes hanging out with her.</span></p><p>So I think she is happy because she notices and records the beautiful moments in life, and I really enjoy being around her.</p>`,
+        translation: `<p>我认为很快乐的人是Jessica，我的大学朋友。我认识她大约两年了，我通常在学校、聚会或旅行时见到她。</p><p><span class="common">她几乎到处拍照。她真的很喜欢拍照，手机里有很多相册。她曾经给我看过一个，告诉我每张照片都是她拍的。照片里有她的家人、老师和朋友，每个人都笑意盎然。我觉得她拍照是因为她想留住那些快乐的回忆，并与他人分享。她记录下生活中的每一个美好瞬间，所以她总是那么快乐。她开朗、友好、乐观。她让人感到舒服，喜欢和我们分享快乐。所以大家都喜欢和她玩。</span></p><p>所以我认为她快乐是因为她注意到并记录了生活中的美好瞬间，我真的很喜欢和她在一起。</p>`,
+        reuse: ['She takes photos almost everywhere','every photo was taken by her','everyone in them is smiling','she always seems happy','cheerful, friendly, and optimistic']
+      },
+      {
+        id: 't19',
+        title: '19. 爱拍照的人',
+        tag: 'Person',
+        answer: `<p>The person in my life who really likes taking photos is Jessica, my university friend. I've known her for about two years, and I usually see her on campus, at parties, or on trips.</p><p><span class="common">She takes photos almost everywhere. She really loves taking photos, and she has many albums on her phone. She once showed me one of them and told me that every photo was taken by her. The photos include her family, teachers, and friends, and everyone in them is smiling. I think she takes photos because she wants to keep those happy memories and share them with others. She records every beautiful moment in her life, so she always seems happy. She is cheerful, friendly, and optimistic. She makes people feel comfortable and loves sharing her happiness with us. That's why everyone likes hanging out with her.</span></p><p>So I think she loves taking photos to keep happy memories, and I feel happy when I look at her photos because they are full of warm moments.</p>`,
+        translation: `<p>我生活中真正喜欢拍照的人是Jessica，我的大学朋友。我认识她大约两年了，我通常在学校、聚会或旅行时见到她。</p><p><span class="common">她几乎到处拍照。她真的很喜欢拍照，手机里有很多相册。她曾经给我看过一个，告诉我每张照片都是她拍的。照片里有她的家人、老师和朋友，每个人都笑意盎然。我觉得她拍照是因为她想留住那些快乐的回忆，并与他人分享。她记录下生活中的每一个美好瞬间，所以她总是那么快乐。她开朗、友好、乐观。她让人感到舒服，喜欢和我们分享快乐。所以大家都喜欢和她玩。</span></p><p>所以我认为她喜欢拍照是为了留住快乐的回忆，我看到她的照片时也感到快乐，因为它们充满了温暖的瞬间。</p>`,
+        reuse: ['She takes photos almost everywhere','every photo was taken by her','everyone in them is smiling','she always seems happy','cheerful, friendly, and optimistic']
+      }
+    ]
+  },
+  {
+    id: 'story-fan',
+    title: '🏓 素材11：樊振东与南京青奥',
+    topics: [
+      {
+        id: 't18',
+        title: '18. 看过的名人采访',
+        tag: 'Event',
+        answer: `<p>The interview with a famous person that I have seen was a short interview with Fan Zhendong, the famous Chinese table tennis player. I watched it on Douyin last year.</p><p><span class="common">The interviewer asked him about the Tokyo Olympics and why athletes often ran into him at restaurants. He joked that he just needed to eat, so people gave him a cute nickname, "Xiao Pang." The questions were quite light and funny, and he answered them in a very natural and humorous way. I felt he was very down-to-earth and easy to like. It made me realize that even a world-class athlete can be relaxed and funny in daily life.</span></p>`,
+        translation: `<p>我看过的一个名人采访是中国著名乒乓球运动员樊振东的一个简短采访。我去年在抖音上看到的。</p><p><span class="common">主持人问他关于东京奥运会的事，以及为什么运动员们总在餐馆遇到他。他开玩笑说他只是要吃饭，所以大家给他取了个可爱外号“小胖”。问题很轻松有趣，他回答得非常自然幽默。我觉得他非常接地气、很容易让人喜欢。这让我意识到，即使是世界级运动员，在日常生活中也可以很放松、很幽默。</span></p>`,
+        reuse: ['Fan Zhendong','the Tokyo Olympics','athletes often ran into him at restaurants','Xiao Pang','down-to-earth']
+      },
+      {
+        id: 't23',
+        title: '23. 体育健将',
+        tag: 'Person',
+        answer: `<p>The sportsperson I know who did well in an event is Fan Zhendong. He is a famous Chinese table tennis player. He plays table tennis extremely well.</p><p><span class="common">I first saw him at the Nanjing Youth Olympic Games when I was in primary school. He was young then, but he was already very powerful and calm. I was lucky enough to watch the table tennis final live, and he won the championship. Later, he became one of the best players in the world. I really admire him because he is talented, hard-working, and mentally strong. He always stays focused under pressure, and that is why he can achieve so much.</span></p>`,
+        translation: `<p>我知道的一位在比赛中表现出色的运动员是樊振东。他是中国著名乒乓球运动员。他乒乓球打得非常好。</p><p><span class="common">我第一次见到他是在南京青奥会，当时我还在上小学。那时他很年轻，但已经非常强大和冷静。我很幸运现场观看了乒乓球决赛，他夺得了冠军。后来，他成为世界上最优秀的球员之一。我真的很佩服他，因为他有天赋、努力，而且心理素质很强。他在压力下总能保持专注，这就是他能取得这么多成就的原因。</span></p>`,
+        reuse: ['Fan Zhendong','Nanjing Youth Olympic Games','I was lucky enough to watch the table tennis final live','he won the championship']
+      },
+      {
+        id: 't34',
+        title: '34. 现场体育比赛',
+        tag: 'Event',
+        answer: `<p>The live sport match I have ever watched was the table tennis final at the Nanjing Youth Olympic Games. I watched it in Nanjing when I was in primary school.</p><p><span class="common">My aunt gave me a ticket, so I went to the stadium with my family. I wanted to watch it live because Fan Zhendong was playing, and I really wanted to see him in person. The stadium was full of energy. People were cheering, waving flags, and clapping. I remember watching Fan Zhendong win the championship. I felt extremely excited and lucky. It was my first time watching such a big match live, and the atmosphere was unforgettable.</span></p>`,
+        translation: `<p>我看过的现场体育比赛是南京青奥会乒乓球决赛。我小学时在南京看的。</p><p><span class="common">我阿姨给了我一张票，所以我和家人去了场馆。我想现场看，因为樊振东在比赛，我特别想亲眼见到他。场馆里充满活力。人们在欢呼、挥旗、鼓掌。我记得看着樊振东夺冠。我感到非常激动和幸运。这是我第一次现场看这么大的比赛，气氛令人难忘。</span></p>`,
+        reuse: ['Fan Zhendong','Nanjing Youth Olympic Games','My aunt gave me a ticket','I remember watching Fan Zhendong win the championship']
+      },
+      {
+        id: 't35',
+        title: '35. 当地新闻',
+        tag: 'Event',
+        answer: `<p>A piece of local news in my area that people were interested in was the Nanjing Youth Olympic Games. I saw and heard about it everywhere when I was in primary school — on TV, at bus stops, and in newspapers. The whole city was talking about it.</p><p><span class="common">The people involved included Nanjing citizens, volunteers, athletes, and many famous sports stars like Fan Zhendong. People were interested because it was a huge international event held in our hometown. It made Nanjing more famous and encouraged everyone to care about sports. I also remember that Fan Zhendong won the table tennis final, which made the local news even more exciting.</span></p>`,
+        translation: `<p>我所在地区人们感兴趣的一条当地新闻是南京青奥会。我小学时到处都能看到、听到——电视上、公交站、报纸上。全城都在讨论。</p><p><span class="common">涉及的人包括南京市民、志愿者、运动员，以及樊振东等许多体育明星。人们感兴趣，因为这是在我们家乡举办的大型国际赛事。它让南京更有名，也鼓励大家关注体育。我还记得樊振东赢得了乒乓球决赛，这让当地新闻更加令人兴奋。</span></p>`,
+        reuse: ['Nanjing Youth Olympic Games','the whole city was talking about it','a huge international event held in our hometown','Fan Zhendong won the table tennis final']
+      },
+      {
+        id: 't51',
+        title: '51. 名人广告',
+        tag: 'Object',
+        answer: `<p>A piece of advertisement I saw with a famous person in it was a Youth Olympic Games ad featuring Fan Zhendong. I saw it when I was in primary school in Nanjing. At that time, the whole city was full of Youth Olympic ads.</p><p><span class="common">In the advertisement, Fan Zhendong was playing table tennis. He looked confident and energetic, and he encouraged people to do sports and stay active. I felt very inspired when I saw it. It made me want to play table tennis and exercise more. Even though I was very young, I could feel the positive energy from the ad and from the event itself.</span></p>`,
+        translation: `<p>我看过的一个有名人出演的广告是樊振东出演的青奥会广告。我小学时在南京看到的。那时全城都是青奥会广告。</p><p><span class="common">广告里，樊振东在打乒乓球。他看起来自信又充满活力，鼓励人们运动、保持活力。我看到时感到很受鼓舞。它让我想打乒乓球、多锻炼。虽然我当时很小，但我能感受到广告和整个活动传递出的正能量。</span></p>`,
+        reuse: ['Fan Zhendong','Youth Olympic Games ad','He looked confident and energetic','encouraged people to do sports and stay active']
+      }
+    ]
+  },
+  {
+    id: 'story-jessica-org',
+    title: '📋 素材12：Jessica 有条理与小组合作',
+    topics: [
+      {
+        id: 't20',
+        title: '20. 有条理的人',
+        tag: 'Person',
+        answer: `<p>I'd like to talk about a person who is well-organized. She is Jessica, my university friend. I knew her at university, and we have worked together several times. I think she is well-organized because she always plans things carefully.</p><p><span class="common">We once worked together on an International Culture Festival at my university. Jessica had a detailed schedule on her phone. She made a to-do list every day and always broke big tasks into small steps. She also made a clear timeline, assigned roles based on our strengths, and checked our progress regularly. Thanks to her organization and language skills, we finished the event on time and even won second prize. Working with her was efficient and pleasant.</span></p><p>I really admire her. She made the whole event clear and easy to follow. I felt grateful and relaxed when working with her. She also made me want to become more organized.</p>`,
+        translation: `<p>我想谈一个很有条理的人。她是Jessica，我的大学朋友。我在大学认识她，我们一起合作过几次。我认为她很有条理，因为她总是仔细计划事情。</p><p><span class="common">我们曾经一起合作过一次国际文化节的活动。Jessica手机里有一个详细的日程表，每天列待办清单，而且总是把大任务拆成小步骤。她做了清晰的时间线，根据我们的优势分配角色，还定期检查进度。多亏了她的组织能力和语言能力，我们按时完成，还得了二等奖。和她合作很高效也很愉快。</span></p><p>我真的很佩服她。她让整个活动清晰易懂。和她一起工作我感到感激和放松。她也让我想变得更有条理。</p>`,
+        reuse: ['a detailed schedule on her phone','made a to-do list every day','broke big tasks into small steps','assigned roles based on our strengths','we finished the event on time and even won second prize']
+      },
+      {
+        id: 't48',
+        title: '48. 小组合作',
+        tag: 'Event',
+        answer: `<p>I'd like to talk about a time when I worked with other people in a group. It was an International Culture Festival at my university. I worked with Jessica and several other students. We were responsible for planning and running the event.</p><p><span class="common">We once worked together on an International Culture Festival at my university. Jessica had a detailed schedule on her phone. She made a to-do list every day and always broke big tasks into small steps. She also made a clear timeline, assigned roles based on our strengths, and checked our progress regularly. Thanks to her organization and language skills, we finished the event on time and even won second prize. Working with her was efficient and pleasant.</span></p><p>The group work was very successful. We finished on time and won second prize. I felt proud and happy. I learned that good organization and teamwork can make a hard task much easier.</p>`,
+        translation: `<p>我想谈一次我和别人在小组中合作的经历。那是我大学里的国际文化节。我和Jessica以及其他几个学生一起工作。我们负责策划和举办活动。</p><p><span class="common">我们曾经一起合作过一次国际文化节的活动。Jessica手机里有一个详细的日程表，每天列待办清单，而且总是把大任务拆成小步骤。她做了清晰的时间线，根据我们的优势分配角色，还定期检查进度。多亏了她的组织能力和语言能力，我们按时完成，还得了二等奖。和她合作很高效也很愉快。</span></p><p>小组合作非常成功。我们按时完成，还得了二等奖。我感到骄傲和开心。我学到了好的组织和团队合作可以让困难的任务变得容易很多。</p>`,
+        reuse: ['a detailed schedule on her phone','made a to-do list every day','broke big tasks into small steps','assigned roles based on our strengths','we finished the event on time and even won second prize']
+      }
+    ]
+  },
+  {
+    id: 'story-earphone',
+    title: '🎧 素材13：攒钱买耳机与电子产品问题',
+    topics: [
+      {
+        id: 't14',
+        title: '14. 攒钱买东西',
+        tag: 'Event',
+        answer: `<p>I'd like to talk about a time when I saved money to buy something I wanted. What I wanted to buy was a new pair of earphones.</p><p><span class="common">I am a very thrifty person. I often buy cheap clothes and daily goods on Pinduoduo, and I can usually get good quality at a very low price. But one day my earphones broke. They kept making noise, so I couldn't listen to music or use them properly. They were second-hand and had been used for two or three years, so I decided to buy a new pair. However, it was the end of the month, and my living expenses were not rich, so I was caught in a difficult choice. In the end, I did tutoring to save up the money.</span></p><p>After I bought them, I felt really happy and proud. I could finally enjoy music again, and I felt that my own effort was worth it. It also taught me that if I really want something, I can save money and work for it instead of just asking my parents.</p>`,
+        translation: `<p>我想谈一次我攒钱买东西的经历。我想买的是一副新耳机。</p><p><span class="common">我是一个很节省的人，经常在PDD上买便宜的衣服日用品等，经常能用很低的价格买到高品质的商品。但是有一次我的耳机坏了，耳机一直发出噪音没有办法听音乐和使用，加上耳机本身就是二手且使用了两三年了，我决定购买新的，但是当时正好是月末，我的生活费并不是很富裕，因此我陷入了艰难的抉择，我去做了家教攒下了这笔钱。</span></p><p>买了之后，我感到非常开心和骄傲。我终于可以再次享受音乐，也觉得自己的努力是值得的。这也教会我，如果我真的很想要某样东西，我可以自己攒钱、努力工作，而不是只向父母要钱。</p>`,
+        reuse: ['I am a very thrifty person','buy cheap clothes and daily goods on Pinduoduo','my earphones broke','it was the end of the month','I did tutoring to save up the money']
+      },
+      {
+        id: 't36',
+        title: '36. 电子产品问题',
+        tag: 'Object',
+        answer: `<p>I'd like to talk about a problem I had with a technology product. It was my earphones.</p><p><span class="common">I am a very thrifty person. I often buy cheap clothes and daily goods on Pinduoduo, and I can usually get good quality at a very low price. But one day my earphones broke. They kept making noise, so I couldn't listen to music or use them properly. They were second-hand and had been used for two or three years, so I decided to buy a new pair. However, it was the end of the month, and my living expenses were not rich, so I was caught in a difficult choice. In the end, I did tutoring to save up the money.</span></p><p>In the end, I fixed the problem by buying a new pair. I felt relieved and satisfied. This experience taught me that sometimes it is better to spend money on something reliable, and I was proud that I earned the money myself.</p>`,
+        translation: `<p>我想谈一次我遇到的电子产品问题。那是我的耳机。</p><p><span class="common">我是一个很节省的人，经常在PDD上买便宜的衣服日用品等，经常能用很低的价格买到高品质的商品。但是有一次我的耳机坏了，耳机一直发出噪音没有办法听音乐和使用，加上耳机本身就是二手且使用了两三年了，我决定购买新的，但是当时正好是月末，我的生活费并不是很富裕，因此我陷入了艰难的抉择，我去做了家教攒下了这笔钱。</span></p><p>最后，我通过买一副新的解决了问题。我感到如释重负和满足。这次经历教会我，有时候花钱买可靠的东西更好，而且我很骄傲自己挣了钱。</p>`,
+        reuse: ['I am a very thrifty person','buy cheap clothes and daily goods on Pinduoduo','my earphones broke','it was the end of the month','I did tutoring to save up the money']
+      }
+    ]
+  },
+  {
+    id: 'story-lily',
+    title: '📜 素材14：童年好友Lily喜欢历史',
+    topics: [
+      {
+        id: 't21',
+        title: '21. 喜欢学习历史的人',
+        tag: 'Person',
+        answer: `<p>I'd like to talk about a person I know who likes to learn about history. She is my childhood friend Lily.</p><p><span class="common">My childhood friend Lily was my neighbor when I was little. Because we were about the same age, we often played together. Our favorite game was role-playing historical characters. At that time, I only knew some very simple historical events, but she could tell many stories. She also shared different Chinese history books with me. I could feel her love for history. Later, she went to university to study history.</span></p><p>I think she likes learning about Chinese history, especially ancient stories and events. I admire her because she is knowledgeable and passionate. Talking with her always makes history feel alive and interesting.</p>`,
+        translation: `<p>我想谈一个我认识的喜欢学习历史的人。她是我的童年好友Lily。</p><p><span class="common">我的童年好友Lily是我小时候的邻居。因为我们年纪相仿，所以经常一起玩。我们最喜欢的游戏是扮演历史人物。当时我只知道一些非常简单的历史事件，但她能讲很多故事。她还和我分享不同的中国历史书。我能感受到她对历史的喜爱。后来，她大学去学了历史专业。</span></p><p>我认为她喜欢学习中国历史，尤其是古代故事和事件。我钦佩她，因为她知识渊博、充满热情。和她交谈总是让历史变得生动有趣。</p>`,
+        reuse: ['my childhood friend Lily','we often played together','role-playing historical characters','she could tell many stories','she went to university to study history']
+      },
+      {
+        id: 't40',
+        title: '40. 童年好友',
+        tag: 'Person',
+        answer: `<p>I'd like to talk about a childhood friend I remember very well. Her name is Lily.</p><p><span class="common">My childhood friend Lily was my neighbor when I was little. Because we were about the same age, we often played together. Our favorite game was role-playing historical characters. At that time, I only knew some very simple historical events, but she could tell many stories. She also shared different Chinese history books with me. I could feel her love for history. Later, she went to university to study history.</span></p><p>I remember her so well because she was not only my playmate but also the person who first made history interesting to me. She was smart, passionate, and kind. Those childhood days were very happy.</p>`,
+        translation: `<p>我想谈一个我记得很清楚的童年好友。她叫Lily。</p><p><span class="common">我的童年好友Lily是我小时候的邻居。因为我们年纪相仿，所以经常一起玩。我们最喜欢的游戏是扮演历史人物。当时我只知道一些非常简单的历史事件，但她能讲很多故事。她还和我分享不同的中国历史书。我能感受到她对历史的喜爱。后来，她大学去学了历史专业。</span></p><p>我记得她这么清楚，因为她不仅是我的玩伴，也是第一个让我觉得历史有趣的人。她聪明、热情、善良。那些童年的日子非常快乐。</p>`,
+        reuse: ['my childhood friend Lily','we often played together','role-playing historical characters','she could tell many stories','she went to university to study history']
+      }
+    ]
+  },
+  {
+    id: 'story-teacher',
+    title: '🎓 素材15：高中班主任改变观点',
+    topics: [
+      {
+        id: 't22',
+        title: '22. 不感兴趣的谈话',
+        tag: 'Event',
+        answer: `<p>I'd like to talk about a time when someone talked about something I was not interested in but I kept listening.</p><p><span class="common">The person was my high school class teacher. At that time, I didn't like studying. But because she was my teacher, I had to listen. She told me that if I wanted to live the life I hoped for, I had to study, especially in China. She said education could give me more choices and freedom. Her words made me change my mind. I started to work hard, and in the end, I got into a good university.</span></p><p>At first, I felt a little uncomfortable, but later I felt encouraged. I kept listening because I respected her, and deep down I knew she was right.</p>`,
+        translation: `<p>我想谈一次别人谈论我不感兴趣的话题但我仍然听着的经历。</p><p><span class="common">那个人是我高中的班主任。当时我不喜欢学习。但因为她是老师，我不得不听。她告诉我，如果我想活出自己希望的样子，必须要学习，尤其在中国。她说教育能给我更多选择和自由。她的话让我改变了想法。我开始努力学习，最后考上了一所不错的大学。</span></p><p>一开始，我感到有点不舒服，但后来我感到受鼓舞。我继续听是因为我尊重她，而且内心深处我知道她是对的。</p>`,
+        reuse: ['my high school class teacher','I didn\'t like studying','if I wanted to live the life I hoped for, I had to study','education could give me more choices and freedom']
+      },
+      {
+        id: 't43',
+        title: '43. 改变重要观点的时刻',
+        tag: 'Event',
+        answer: `<p>I'd like to talk about a time when I changed my opinion about something important. It was in high school.</p><p><span class="common">The person was my high school class teacher. At that time, I didn't like studying. But because she was my teacher, I had to listen. She told me that if I wanted to live the life I hoped for, I had to study, especially in China. She said education could give me more choices and freedom. Her words made me change my mind. I started to work hard, and in the end, I got into a good university.</span></p><p>I felt thankful and proud, and I learned that changing your mind can change your life.</p>`,
+        translation: `<p>我想谈一次我改变了对某件重要事情看法的经历。那是在高中。</p><p><span class="common">那个人是我高中的班主任。当时我不喜欢学习。但因为她是老师，我不得不听。她告诉我，如果我想活出自己希望的样子，必须要学习，尤其在中国。她说教育能给我更多选择和自由。她的话让我改变了想法。我开始努力学习，最后考上了一所不错的大学。</span></p><p>我感到感激和骄傲，我学到了改变想法可以改变人生。</p>`,
+        reuse: ['my high school class teacher','I didn\'t like studying','if I wanted to live the life I hoped for, I had to study','education could give me more choices and freedom']
+      }
+    ]
+  },
+  {
+    id: 'story-zifeng',
+    title: '🏙️ 素材16：紫峰大厦',
+    topics: [
+      {
+        id: 't24',
+        title: '24. 喜欢去的公共建筑',
+        tag: 'Place',
+        answer: `<p>I'd like to talk about a public building I enjoy spending time in. It is Zifeng Tower in Nanjing.</p><p><span class="common">Zifeng Tower is a landmark building in Nanjing, my hometown. It is in the city center. I know it is one of the tallest buildings in Nanjing, and it stands for the modern side of the city. It looks modern and grand, and it can be seen from many places. I often go up to the top to enjoy the view and look down over the whole of Nanjing. From there, I can feel the history of Nanjing and see how the city has developed.</span></p><p>It is used for sightseeing, shopping, and relaxing. I enjoy spending time there because the view is amazing, and it makes me feel calm and proud of my hometown.</p>`,
+        translation: `<p>我想谈一个我喜欢待的公共建筑。它是南京的紫峰大厦。</p><p><span class="common">紫峰大厦是我家乡南京的地标建筑。它在市中心。我知道它是南京最高的建筑之一，也代表着这座城市的现代一面。它看起来现代又宏伟，在很多地方都能看到。我常常登上高楼看风景，俯瞰整个南京。在那里，我能感受到南京的历史，也能看到城市的发展。</span></p><p>它用于观光、购物和放松。我喜欢在那里消磨时间，因为景色很棒，让我感到平静，并为家乡感到骄傲。</p>`,
+        reuse: ['Zifeng Tower','a landmark building in Nanjing','in the city center','I often go up to the top to enjoy the view','feel the history of Nanjing and see how the city has developed']
+      },
+      {
+        id: 't31',
+        title: '31. 高楼',
+        tag: 'Place',
+        answer: `<p>I'd like to talk about a tall building I like. It is Zifeng Tower in Nanjing.</p><p><span class="common">Zifeng Tower is a landmark building in Nanjing, my hometown. It is in the city center. I know it is one of the tallest buildings in Nanjing, and it stands for the modern side of the city. It looks modern and grand, and it can be seen from many places. I often go up to the top to enjoy the view and look down over the whole of Nanjing. From there, I can feel the history of Nanjing and see how the city has developed.</span></p><p>I like it because it is not just a tall building; it is a symbol of Nanjing. Whenever I go there, I feel calm and proud of my hometown.</p>`,
+        translation: `<p>我想谈一座我喜欢的高楼。它是南京的紫峰大厦。</p><p><span class="common">紫峰大厦是我家乡南京的地标建筑。它在市中心。我知道它是南京最高的建筑之一，也代表着这座城市的现代一面。它看起来现代又宏伟，在很多地方都能看到。我常常登上高楼看风景，俯瞰整个南京。在那里，我能感受到南京的历史，也能看到城市的发展。</span></p><p>我喜欢它，因为它不仅仅是一座高楼，它是南京的象征。每当我去那里，我都感到平静，并为家乡感到骄傲。</p>`,
+        reuse: ['Zifeng Tower','a landmark building in Nanjing','in the city center','I often go up to the top to enjoy the view','feel the history of Nanjing and see how the city has developed']
+      }
+    ]
+  },
+  {
+    id: 'story-ceremony',
+    title: '🎉 素材17：成人礼派对',
+    topics: [
+      {
+        id: 't26',
+        title: '26. 特殊事件的派对',
+        tag: 'Event',
+        answer: `<p>I'd like to talk about a party that was held for a special event. It was our coming-of-age ceremony in senior high school. It was held when we were graduating, and all high school graduates joined it.</p><p>At the party, we first listened to a lecture about growing up and responsibility. Then we received gifts from our parents and letters they had written to us. In the letters, our parents shared their love, hopes, and advice. We also took photos with our teachers and classmates.</p><p>I was very touched because it made me realize I was growing up and becoming an adult. I also felt a sense of responsibility. It was not a crazy party, but it was meaningful and unforgettable. It marked an important step in my life.</p>`,
+        translation: `<p>我想谈一个为特殊事件举办的派对。那是我们高中的成人礼。它在我们毕业时举行，所有高中毕业生都参加了。</p><p>在派对上，我们先听了一个关于成长和责任的讲座。然后我们收到了父母赠送的礼物，以及他们写给我们的信。在信里，父母表达了爱、希望和建议。我们还和老师、同学拍了照片。</p><p>我非常感动，因为它让我意识到自己正在长大，正在成为成年人。我也感受到一种责任感。它不是那种热闹疯狂的派对，但很有意义，也很难忘。它标志着我人生中重要的一步。</p>`,
+        reuse: ['our coming-of-age ceremony','all high school graduates joined it','we received gifts from our parents and letters they had written to us','it made me realize I was growing up and becoming an adult']
+      }
+    ]
+  },
+  {
+    id: 'story-plants',
+    title: '🪴 素材18：种植物的人与不想住的房子',
+    topics: [
+      {
+        id: 't33',
+        title: '33. 喜欢种植物的人',
+        tag: 'Person',
+        answer: `<p>I'd like to talk about a person I know who enjoys growing plants. This person grows flowers and vegetables at home. I sometimes visit their home. It is full of plants, so it feels fresh and interesting.</p><p><span class="common">They enjoy growing many kinds of plants, such as flowers and vegetables, both inside the house and in the garden. I think they enjoy it because it is relaxing and rewarding. They can watch plants grow and then enjoy the flowers or eat the vegetables. I like visiting because I can enjoy the flowers and learn some gardening knowledge. However, I wouldn't want to live there because if you are not a plant lover, there are too many insects, and the space is taken over by plants. It doesn't feel very comfortable or free.</span></p><p>I admire their patience and love for nature.</p>`,
+        translation: `<p>我想谈一个我认识的喜欢种植物的人。这个人在家里种花种菜。我偶尔会去他家看看。那里满是植物，所以感觉很清新、很有趣。</p><p><span class="common">他喜欢种很多种植物，比如花和蔬菜，既种在室内，也种在花园里。我觉得他喜欢种植物，是因为这让人放松，也很有成就感。他可以看到植物生长，然后欣赏花朵或吃自己种的蔬菜。我喜欢去拜访，因为可以欣赏花草，也能学一些种花种菜的知识。但是我不想住在那里，因为如果你不是植物爱好者，就会觉得虫子比较多，空间都被植物占了，不太舒服，也不太自在。</span></p><p>我钦佩他们的耐心和对自然的热爱。</p>`,
+        reuse: ['grows flowers and vegetables at home','It is full of plants','it is relaxing and rewarding','I wouldn\'t want to live there because there are too many insects']
+      },
+      {
+        id: 't38',
+        title: '38. 喜欢但不想住的房子',
+        tag: 'Place',
+        answer: `<p>I'd like to talk about a home I visited that I liked but would not want to live in.</p><p><span class="common">This person grows flowers and vegetables at home. I sometimes visit their home. It is full of plants, so it feels fresh and interesting. They enjoy growing many kinds of plants, such as flowers and vegetables, both inside the house and in the garden. I think they enjoy it because it is relaxing and rewarding. They can watch plants grow and then enjoy the flowers or eat the vegetables. I like visiting because I can enjoy the flowers and learn some gardening knowledge. However, I wouldn't want to live there because if you are not a plant lover, there are too many insects, and the space is taken over by plants. It doesn't feel very comfortable or free.</span></p><p>So I liked visiting it, but I wouldn't want to live there. I prefer a cleaner and simpler living space.</p>`,
+        translation: `<p>我想谈一个我去过的、喜欢但不想住的房子。</p><p><span class="common">这个人在家里种花种菜。我偶尔会去他家看看。那里满是植物，所以感觉很清新、很有趣。他喜欢种很多种植物，比如花和蔬菜，既种在室内，也种在花园里。我觉得他喜欢种植物，是因为这让人放松，也很有成就感。他可以看到植物生长，然后欣赏花朵或吃自己种的蔬菜。我喜欢去拜访，因为可以欣赏花草，也能学一些种花种菜的知识。但是我不想住在那里，因为如果你不是植物爱好者，就会觉得虫子比较多，空间都被植物占了，不太舒服，也不太自在。</span></p><p>所以我喜欢去参观，但我不想住在那里。我更喜欢干净简单的居住空间。</p>`,
+        reuse: ['grows flowers and vegetables at home','It is full of plants','it is relaxing and rewarding','I wouldn\'t want to live there because there are too many insects']
+      }
+    ]
+  },
+  {
+    id: 'story-jessica-med',
+    title: '🏥 素材19：堂姐Jessica医疗行业与事业成功',
+    topics: [
+      {
+        id: 't29',
+        title: '29. 想从事医疗行业的人',
+        tag: 'Person',
+        answer: `<p>I'd like to talk about someone I know who has always wanted to work in medicine. She is my cousin Jessica. I have known her since I was young.</p><p><span class="common">When she was in high school, our grandfather passed away because of illness. That made her want to study medicine and help other people. Later, she studied biology at university. Now she runs a company related to medical equipment. She has built a good career and is successful. I have not used her business myself, but I know it is successful because she helps many people and works very hard.</span></p><p>I think she has always wanted to work in medicine because she experienced the pain of losing a family member and wants to make a difference. I really admire her. She is kind, strong, and hard-working, and she turned a sad experience into a meaningful goal.</p>`,
+        translation: `<p>我想谈一个我认识的一直想从事医疗行业的人。她是我的堂姐Jessica。我从小就认识她。</p><p><span class="common">她高中时，我们的爷爷因病去世了。这让她想要学医，帮助别人。后来她在大学学了生物。现在她开了一家与医疗器械相关的公司，事业很好，也很成功。我自己没有用过她的业务，但我知道她的公司很成功，因为她帮助了很多人，也非常努力。</span></p><p>我认为她一直想从事医疗行业，因为她经历了失去家人的痛苦，想要有所作为。我真的很佩服她。她善良、坚强、努力，她把悲伤的经历变成了有意义的目标。</p>`,
+        reuse: ['my cousin Jessica','our grandfather passed away because of illness','she wanted to study medicine and help other people','she studied biology at university','she runs a company related to medical equipment']
+      },
+      {
+        id: 't32',
+        title: '32. 事业成功的人',
+        tag: 'Person',
+        answer: `<p>I'd like to talk about a person I know who runs a successful business. She is my cousin Jessica. I have known her since I was young.</p><p><span class="common">When she was in high school, our grandfather passed away because of illness. That made her want to study medicine and help other people. Later, she studied biology at university. Now she runs a company related to medical equipment. She has built a good career and is successful. I have not used her business myself, but I know it is successful because she helps many people and works very hard.</span></p><p>I think her business is successful because she is knowledgeable, hard-working, and caring. I really admire her and feel proud of her.</p>`,
+        translation: `<p>我想谈一个我认识的经营成功企业的人。她是我的堂姐Jessica。我从小就认识她。</p><p><span class="common">她高中时，我们的爷爷因病去世了。这让她想要学医，帮助别人。后来她在大学学了生物。现在她开了一家与医疗器械相关的公司，事业很好，也很成功。我自己没有用过她的业务，但我知道她的公司很成功，因为她帮助了很多人，也非常努力。</span></p><p>我认为她的事业成功是因为她知识渊博、努力、有爱心。我真的很佩服她，也为她感到骄傲。</p>`,
+        reuse: ['my cousin Jessica','our grandfather passed away because of illness','she wanted to study medicine and help other people','she studied biology at university','she runs a company related to medical equipment']
+      }
+    ]
+  },
+  {
+    id: 'story-suzhou',
+    title: '🏞️ 素材20：苏州旅行',
+    topics: [
+      {
+        id: 't44',
+        title: '44. 推荐度假胜地',
+        tag: 'Place',
+        answer: `<p>I'd like to talk about a place I went to on holiday that I would recommend. It is Suzhou.</p><p><span class="common">I went to Suzhou on holiday and stayed in a hotel in the city center. Unlike Nanjing, Suzhou's city planning is very good. The city center has only low old buildings, small bridges, and flowing water, so it is very quiet and you can enjoy the Jiangnan scenery. People can walk around the old streets, enjoy the gardens, and live a peaceful life. Although prices are high, the environment and climate are pleasant, and the historical atmosphere is strong.</span></p><p>I would recommend it because it is beautiful, peaceful, and full of culture. It is a great place to slow down and enjoy traditional Chinese scenery.</p>`,
+        translation: `<p>我想谈一个我去过并会推荐的度假胜地。它是苏州。</p><p><span class="common">我假期去了苏州，住在市中心的旅店。和南京不同，苏州的城市规划特别好。市中心只有低矮的旧建筑、小桥流水，非常安静，可以欣赏江南风景。人们可以逛老街、欣赏园林，过一种安静的生活。虽然物价高，但环境和气候宜人，历史氛围浓厚。</span></p><p>我会推荐它，因为它美丽、宁静、充满文化。它是一个放慢脚步、欣赏中国传统风光的好地方。</p>`,
+        reuse: ['Suzhou','stayed in a hotel in the city center','low old buildings, small bridges, and flowing water','very quiet and you can enjoy the Jiangnan scenery','beautiful, peaceful, and full of culture']
+      },
+      {
+        id: 't30',
+        title: '30. 宜居之地',
+        tag: 'Place',
+        answer: `<p>I'd like to talk about a place I have visited that I think is a good place to live. It is Suzhou.</p><p><span class="common">I went to Suzhou on holiday and stayed in a hotel in the city center. Unlike Nanjing, Suzhou's city planning is very good. The city center has only low old buildings, small bridges, and flowing water, so it is very quiet and you can enjoy the Jiangnan scenery. People can walk around the old streets, enjoy the gardens, and live a peaceful life. Although prices are high, the environment and climate are pleasant, and the historical atmosphere is strong.</span></p><p>I think it is a good place to live because it is beautiful, quiet, and culturally rich. It offers a good balance between modern life and traditional beauty.</p>`,
+        translation: `<p>我想谈一个我去过的、我认为很适合居住的地方。它是苏州。</p><p><span class="common">我假期去了苏州，住在市中心的旅店。和南京不同，苏州的城市规划特别好。市中心只有低矮的旧建筑、小桥流水，非常安静，可以欣赏江南风景。人们可以逛老街、欣赏园林，过一种安静的生活。虽然物价高，但环境和气候宜人，历史氛围浓厚。</span></p><p>我认为它是一个好居住地，因为它美丽、安静、文化丰富。它在现代生活和传统美之间提供了很好的平衡。</p>`,
+        reuse: ['Suzhou','stayed in a hotel in the city center','low old buildings, small bridges, and flowing water','very quiet and you can enjoy the Jiangnan scenery','beautiful, quiet, and culturally rich']
+      }
+    ]
+  },
+  {
+    id: 'story-law',
+    title: '🚭 素材21：环保法律（公共场所禁烟）',
+    topics: [
+      {
+        id: 't47',
+        title: '47. 想实施的环保法律',
+        tag: 'Event',
+        answer: `<p>I'd like to talk about a law to help the environment that I think my country should have. It is a law that bans smoking in public places.</p><p>I think China needs this law because China has a huge population, and the overall quality of people still needs to improve. Many people suffer from second-hand smoke in restaurants, stations, and other public places. This law would help improve air quality and protect people's health, especially children and old people.</p><p>I think it would be popular among non-smokers and people who care about health, although some smokers may not like it. Overall, it would help the environment and make public places cleaner and safer. That's why I think it is necessary.</p>`,
+        translation: `<p>我想谈一条我认为国家应该实施的环保法律。那就是禁止在公共场所抽烟。</p><p>我觉得中国需要这条法律，因为中国人口基数大，整体素质还有待提高。很多人在餐厅、车站和其他公共场所深受二手烟影响。这条法律有助于改善空气质量，保护人们的健康，尤其是儿童和老人。</p><p>我觉得它在不抽烟的人和关心健康的人中会很受欢迎，虽然一些抽烟的人可能不喜欢。总的来说，它有助于环保，也能让公共场所更干净、更安全。所以我认为它很有必要。</p>`,
+        reuse: ['bans smoking in public places','China has a huge population','suffer from second-hand smoke','protect people\'s health, especially children and old people','make public places cleaner and safer']
+      }
+    ]
+  },
+  {
+    id: 'story-video',
+    title: '🎥 素材22：社媒有趣视频（俄罗斯情侣爬帝国大厦）',
+    topics: [
+      {
+        id: 't42',
+        title: '42. 社媒有趣视频',
+        tag: 'Object',
+        answer: `<p>I'd like to talk about an interesting video I watched on the internet. It was about a Russian couple climbing the Empire State Building. I watched it online, and I found it by accident while scrolling. It became famous all over the world.</p><p>The video showed them climbing the building, and it was very brave and romantic. The message was "when the power of love beats the love of power, the world knows peace." I thought it was interesting because it was not just a dangerous action; it also had a deep meaning. It made me think about love, power, and peace.</p><p>I watched it several times and shared it with my friends. It was both exciting and meaningful.</p>`,
+        translation: `<p>我想谈一个我在网上看到的有趣视频。它讲的是一对俄罗斯情侣攀爬帝国大厦。我是在网上刷到的，偶然发现的。这个视频火遍全球。</p><p>视频里他们爬上了大楼，非常勇敢，也很浪漫。它的信息是：“当爱的力量战胜对权力的爱，世界便知道和平。”我觉得它有趣，是因为它不仅是一个危险动作，还有很深的含义。它让我思考爱、权力与和平。</p><p>我看了好几遍，还分享给了朋友。它既刺激又有意义。</p>`,
+        reuse: ['a Russian couple climbing the Empire State Building','it was very brave and romantic','when the power of love beats the love of power, the world knows peace','it made me think about love, power, and peace']
+      }
+    ]
+  },
+  {
+    id: 'story-confession',
+    title: '💌 素材23：久等回复的时刻（表白）',
+    topics: [
+      {
+        id: 't50',
+        title: '50. 久等回复的时刻',
+        tag: 'Event',
+        answer: `<p>I'd like to talk about a time when I wrote a message to someone and waited a long time for a reply. This is a sad story. In middle school, I liked a boy. He was my deskmate. But I was young, busy with school, and not very confident, so I didn't confess, and we gradually lost contact.</p><p>Later, in high school, we got in touch again. One night, I couldn't help it and confessed to him. I sent the message and waited for a very long time. I kept checking my phone, but there was no reply. I felt nervous, hopeful, and then disappointed. I didn't receive a reply until I woke up the next day.</p><p>I felt sad and a bit embarrassed, but now I think it was a brave thing to do.</p>`,
+        translation: `<p>我想谈一次我给某人发消息，却等了很久才收到回复的经历。这是一个伤心的故事。初中时，我喜欢一个男生，他是我的同桌。但当时年纪小，学业多，加上我不太自信，所以没有表白，也慢慢没有了联系。</p><p>后来进入高中，我们又联系上了。有一天晚上，我没忍住，向他表白了。我发了消息，等了很长时间。我不断看手机，但一直没有回复。我感到紧张、期待，然后失望。直到第二天醒来，我才收到回复。</p><p>我当时很难过，也有点尴尬，但现在我觉得那是一件很勇敢的事。</p>`,
+        reuse: ['I liked a boy. He was my deskmate','I didn\'t confess, and we gradually lost contact','I sent the message and waited for a very long time','I felt nervous, hopeful, and then disappointed']
+      }
+    ]
+  },
+  {
+    id: 'story-language',
+    title: '🗣️ 素材24：擅长学习语言的人',
+    topics: [
+      {
+        id: 't52',
+        title: '52. 擅长学习语言的人',
+        tag: 'Person',
+        answer: `<p>I'd like to talk about a person who is good at learning languages. She is my friend Jessie. She is an English major and always the top student in her class.</p><p>She is passionate about English literature and linguistics, and she often shares interesting things she learns from her research. She is so dedicated to her studies that she often forgets to check her phone. I remember sending her messages inviting her to dinner, and she would reply two or even three days later. Even when waiting for a taxi, she would be reading or working on her laptop.</p><p>But she is incredibly reliable when it matters most. Once, I had to give a presentation and was really nervous. She helped me practice my spoken English, polish my slides, and go over all the details. She shared all her language-learning tips with me without holding anything back. I really admire her.</p>`,
+        translation: `<p>我想谈一个擅长学习语言的人。她是我的朋友Jessie。她是英语专业，一直是班里的第一名。</p><p>她热爱英语文学和语言学，经常分享她从研究中获得的有趣知识。她对学习非常投入，经常忘记看手机。我记得给她发消息约她吃饭，她两三天后才回复。即使等出租车时，她也在看书或用电脑。</p><p>但在关键时刻她非常可靠。有一次我需要在课堂上做演讲，我很紧张。她帮我练习口语，完善幻灯片，检查所有细节。她毫无保留地分享了她学习语言的技巧。我真的很佩服她。</p>`,
+        reuse: ['my friend Jessie','an English major','always the top student in her class','she often forgets to check her phone','she is incredibly reliable when it matters most']
+      }
+    ]
+  }
+];
+
+// ============================================================
+// 渲染逻辑
+// ============================================================
+let currentFilter = 'all';
+let searchQuery = '';
+let favorites = JSON.parse(localStorage.getItem('ielts_favorites')) || {};
+let theme = localStorage.getItem('ielts_theme') || 'light';
+let showTranslation = localStorage.getItem('ielts_translation') === 'true' ? true : false;
+
+function render() {
+  const container = document.getElementById('storiesContainer');
+  container.innerHTML = '';
+  let totalTopics = 0, shownTopics = 0;
+  storiesData.forEach(story => {
+    let filteredTopics = story.topics.filter(t => {
+      const matchTag = currentFilter === 'all' || t.tag === currentFilter;
+      const matchSearch = t.title.toLowerCase().includes(searchQuery.toLowerCase()) ||
+                          t.answer.toLowerCase().includes(searchQuery.toLowerCase()) ||
+                          story.title.toLowerCase().includes(searchQuery.toLowerCase());
+      return matchTag && matchSearch;
+    });
+    if (filteredTopics.length === 0) return;
+    shownTopics += filteredTopics.length;
+    totalTopics += story.topics.length;
+    const group = document.createElement('div');
+    group.className = 'story-group';
+    group.id = story.id;
+    group.innerHTML = `<div class="story-title-main">${story.title}</div>`;
+    filteredTopics.forEach(t => {
+      const card = document.createElement('div');
+      card.className = 'card';
+      card.id = t.id;
+      const isFav = favorites[t.id] || false;
+      const transClass = showTranslation ? 'show' : '';
+      card.innerHTML = `
+        <div class="card-header">
+          <span class="topic-name">${t.title}</span>
+          <div style="display:flex;align-items:center;gap:6px;flex-wrap:wrap;">
+            <span class="tag">${t.tag}</span>
+            <div class="card-actions">
+              <button class="fav-btn" data-id="${t.id}" style="color:${isFav ? '#f5a623' : 'inherit'}; opacity:${isFav ? 1 : 0.6};">⭐</button>
+              <button class="copy-btn" data-answer="${encodeURIComponent(t.answer.replace(/<[^>]*>/g,'').trim())}">📋</button>
+            </div>
+          </div>
+        </div>
+        <div class="answer">${t.answer}</div>
+        ${t.translation ? `<div class="translation ${transClass}"><span class="label">🇨🇳 中文翻译：</span>${t.translation}</div>` : ''}
+        ${t.reuse ? `<div class="reuse"><strong>♻️ 复用</strong> ${t.reuse.map(r => `<span>${r}</span>`).join(' ')}</div>` : ''}
+      `;
+      group.appendChild(card);
+    });
+    container.appendChild(group);
+  });
+  const progressPct = totalTopics > 0 ? Math.round((shownTopics / totalTopics) * 100) : 0;
+  document.getElementById('progressInfo').textContent = `进度: ${progressPct}% (${shownTopics}/${totalTopics})`;
+  buildSidebar();
+  attachCardEvents();
+  const savedScroll = localStorage.getItem('ielts_scroll');
+  if (savedScroll) {
+    document.getElementById('mainContent').scrollTop = parseInt(savedScroll);
+  }
+}
+
+function buildSidebar() {
+  const list = document.getElementById('storyList');
+  list.innerHTML = '';
+  storiesData.forEach(story => {
+    const item = document.createElement('div');
+    item.className = 'story-item';
+    const titleDiv = document.createElement('div');
+    titleDiv.className = 'story-title';
+    const count = story.topics.length;
+    titleDiv.innerHTML = `<span>${story.title}</span><span class="badge">${count}</span>`;
+    titleDiv.onclick = () => {
+      const list = titleDiv.nextElementSibling;
+      list.classList.toggle('open');
+    };
+    item.appendChild(titleDiv);
+    const topicList = document.createElement('div');
+    topicList.className = 'topic-list';
+    story.topics.forEach(t => {
+      const link = document.createElement('a');
+      link.className = 'topic-link';
+      link.textContent = t.title;
+      const tagLabel = document.createElement('span');
+      tagLabel.className = 'tag-label';
+      tagLabel.textContent = t.tag;
+      link.appendChild(tagLabel);
+      link.onclick = (e) => {
+        e.preventDefault();
+        const target = document.getElementById(t.id);
+        if (target) {
+          target.scrollIntoView({ behavior: 'smooth', block: 'center' });
+        }
+        if (window.innerWidth <= 768) {
+          document.getElementById('sidebar').style.display = 'none';
+        }
+      };
+      topicList.appendChild(link);
+    });
+    item.appendChild(topicList);
+    list.appendChild(item);
+  });
+  const first = list.querySelector('.topic-list');
+  if (first) first.classList.add('open');
+}
+
+function attachCardEvents() {
+  document.querySelectorAll('.fav-btn').forEach(btn => {
+    btn.onclick = function() {
+      const id = this.dataset.id;
+      favorites[id] = !favorites[id];
+      localStorage.setItem('ielts_favorites', JSON.stringify(favorites));
+      render();
+    };
+  });
+  document.querySelectorAll('.copy-btn').forEach(btn => {
+    btn.onclick = function() {
+      const text = decodeURIComponent(this.dataset.answer);
+      navigator.clipboard.writeText(text).then(() => {
+        const orig = this.textContent;
+        this.textContent = '✅';
+        setTimeout(() => this.textContent = orig, 1500);
+      }).catch(() => alert('复制失败，请手动复制'));
+    };
+  });
+}
+
+// ========== 搜索 & 筛选 ==========
+document.getElementById('searchBox').addEventListener('input', function() {
+  searchQuery = this.value;
+  render();
+});
+document.querySelectorAll('.filter-btn').forEach(btn => {
+  btn.onclick = function() {
+    document.querySelectorAll('.filter-btn').forEach(b => b.classList.remove('active'));
+    this.classList.add('active');
+    currentFilter = this.dataset.filter;
+    render();
+  };
+});
+
+// ========== 主题切换 ==========
+function applyTheme(t) {
+  document.documentElement.setAttribute('data-theme', t);
+  document.getElementById('themeToggle').textContent = t === 'dark' ? '☀️' : '🌙';
+  localStorage.setItem('ielts_theme', t);
+}
+document.getElementById('themeToggle').onclick = function() {
+  const newTheme = document.documentElement.getAttribute('data-theme') === 'dark' ? 'light' : 'dark';
+  applyTheme(newTheme);
+};
+applyTheme(theme);
+
+// ========== 翻译切换 ==========
+function applyTranslation(show) {
+  showTranslation = show;
+  localStorage.setItem('ielts_translation', show ? 'true' : 'false');
+  document.getElementById('transToggle').textContent = show ? '🌐 中文' : '🌐 英文';
+  document.getElementById('transToggle').classList.toggle('active', show);
+  render();
+}
+document.getElementById('transToggle').onclick = function() {
+  applyTranslation(!showTranslation);
+};
+applyTranslation(showTranslation);
+
+// ========== 侧边栏切换 ==========
+document.getElementById('toggleSidebar').onclick = function() {
+  const sidebar = document.getElementById('sidebar');
+  sidebar.style.display = sidebar.style.display === 'none' ? 'block' : 'none';
+};
+
+// ========== 滚动顶部 ==========
+const scrollBtn = document.getElementById('scrollTopBtn');
+document.getElementById('mainContent').addEventListener('scroll', function() {
+  if (this.scrollTop > 300) {
+    scrollBtn.classList.add('show');
+  } else {
+    scrollBtn.classList.remove('show');
+  }
+  localStorage.setItem('ielts_scroll', this.scrollTop);
+});
+scrollBtn.onclick = function() {
+  document.getElementById('mainContent').scrollTo({ top: 0, behavior: 'smooth' });
+};
+
+// ========== 导出功能 ==========
+function exportWord(storyId) {
+  let exportHtml = `<html xmlns:o='urn:schemas-microsoft-com:office:office' xmlns:w='urn:schemas-microsoft-com:office:word' xmlns='http://www.w3.org/TR/REC-html40'>
+  <head><meta charset="utf-8"><title>雅思口语串题宝典</title>
+  <style>
+    body { font-family: 'Segoe UI', Arial, sans-serif; padding: 30px; max-width: 1100px; margin:0 auto; }
+    .story-group { margin-bottom: 30px; border:1px solid #ccc; padding:16px 20px; background:#fafcff; border-radius:8px; }
+    .story-title-main { font-size: 24px; font-weight: 700; border-left: 6px solid #4a8bf5; padding-left: 16px; margin-bottom: 20px; }
+    .card { border-left: 4px solid #4a8bf5; padding: 12px 18px; margin-bottom: 14px; background: #fff; border-radius:6px; }
+    .card-header { display:flex; justify-content:space-between; align-items:baseline; flex-wrap:wrap; margin-bottom:6px; }
+    .topic-name { font-size: 18px; font-weight: 700; }
+    .tag { font-size: 12px; background: #e3edfd; padding: 0 12px; border-radius: 30px; display:inline-block; }
+    .answer { font-size: 15px; line-height: 1.7; }
+    .common { background: #fff8e1; padding: 2px 6px; border-radius: 4px; border-bottom: 2px solid #f5c542; }
+    .translation { display: block; background: #f0f8ff; padding: 8px 12px; border-radius: 6px; margin-top: 8px; }
+    .reuse { font-size: 13px; border-top: 1px dashed #ccc; padding-top: 8px; margin-top: 8px; }
+    .reuse span { background: #f0f5fe; padding: 2px 8px; border-radius: 16px; margin: 0 3px 3px 0; display: inline-block; }
+    .highlight-phrase { background: #fff3cd; padding: 0 4px; border-radius: 4px; }
+  </style>
+  </head><body>`;
+  storiesData.forEach(story => {
+    if (storyId !== 'all' && story.id !== storyId) return;
+    exportHtml += `<div class="story-group"><div class="story-title-main">${story.title}</div>`;
+    story.topics.forEach(t => {
+      exportHtml += `
+        <div class="card">
+          <div class="card-header">
+            <span class="topic-name">${t.title}</span>
+            <span class="tag">${t.tag}</span>
+          </div>
+          <div class="answer">${t.answer}</div>
+          ${t.translation ? `<div class="translation"><span class="label">🇨🇳 中文翻译：</span>${t.translation}</div>` : ''}
+          ${t.reuse ? `<div class="reuse"><strong>♻️ 复用</strong> ${t.reuse.map(r => `<span>${r}</span>`).join(' ')}</div>` : ''}
+        </div>
+      `;
+    });
+    exportHtml += `</div>`;
+  });
+  exportHtml += `</body></html>`;
+  const blob = new Blob([exportHtml], { type: 'application/msword;charset=utf-8' });
+  const link = document.createElement('a');
+  link.href = URL.createObjectURL(blob);
+  link.download = storyId === 'all' ? '雅思口语串题宝典_全部.doc' : `雅思口语_${storyId}.doc`;
+  document.body.appendChild(link);
+  link.click();
+  document.body.removeChild(link);
+  URL.revokeObjectURL(link.href);
+}
+
+document.getElementById('exportAllWord').onclick = function() {
+  exportWord('all');
+};
+document.getElementById('exportCurrentStoryWord').onclick = function() {
+  const visible = document.querySelector('.story-group');
+  if (visible) {
+    exportWord(visible.id);
+  } else {
+    alert('没有可见的故事');
+  }
+};
+
+document.getElementById('exportPDF').onclick = function() {
+  window.print();
+};
+
+// ========== 初始化 ==========
+render();
+</script>
+</body>
+</html>
